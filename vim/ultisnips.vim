@@ -5,11 +5,10 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 
-" OLD
 
 let g:UltiSnipsExpandTrigger = "<nop>"
 " shortcut to go to next position
-" let g:UltiSnipsJumpForwardTrigger='<c-j>'
+" let g:UltiSnipsJumpForwardTrigger='<s-tab>'
 
 " shortcut to go to previous position
 " let g:UltiSnipsJumpBackwardTrigger='<c-k>'

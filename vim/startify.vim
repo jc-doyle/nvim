@@ -24,11 +24,4 @@ let g:startify_bookmarks = [
 
 let g:startify_enable_special = 0
 
-highlight StartifyHeader guifg=#b48ead guibg=NONE
-highlight StartifyNumber   guifg=#81a1c1 guibg=NONE
-highlight StartifyPath   guifg=#e5e9f0 guibg=NONE
-highlight StartifyFile   guifg=#b48ead guibg=NONE
-highlight StartifySlash   guifg=#d8dee9 guibg=NONE
-highlight StartifyBracket   guifg=#434c5e guibg=NONE
-
 let g:startify_fortune_use_unicode = 1

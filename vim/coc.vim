@@ -1,24 +1,22 @@
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-vimtex',
-  \ 'coc-explorer',
-  \ 'coc-json',
-  \ 'coc-yank',
-  \ ]
+      \ 'coc-snippets',
+      \ 'coc-vimtex',
+      \ 'coc-json',
+      \ 'coc-yank',
+      \ ]
 
-  "   \ 'coc-vimlsp',
-  "   \ 'coc-actions',
-  "   \ 'coc-emmet',
-  "   \ 'coc-tsserver',
-  "   \ 'coc-html',
-  "   \ 'coc-css',
-  "   \ 'coc-cssmodules',
-  "   \ 'coc-yaml',
-  "   \ 'coc-python',
-  "   \ 'coc-svg',
-  "   \ 'coc-flutter',
-  "   \ 'coc-xml',
+"   \ 'coc-vimlsp',
+"   \ 'coc-actions',
+"   \ 'coc-emmet',
+"   \ 'coc-tsserver',
+"   \ 'coc-html',
+"   \ 'coc-css',
+"   \ 'coc-cssmodules',
+"   \ 'coc-yaml',
+"   \ 'coc-python',
+"   \ 'coc-svg',
+"   \ 'coc-flutter',
+"   \ 'coc-xml',
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -32,9 +30,10 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_prev = '<s-tab>'
+let g:coc_snippet_prev = '<S-TAB>'
 
-imap <C-l> <Plug>(coc-snippets-expand-jump)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -76,30 +75,3 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Explorer
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\      'root-uri': '~/.vim',
-\   },
-\   'floating': {
-\      'position': 'floating',
-\   },
-\   'floatingLeftside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 50,
-\   },
-\   'floatingRightside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 50,
-\   },
-\   'simplify': {
-\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
-
-"nmap <silent> <space>e :CocCommand explorer<CR>
-" nnoremap <silent> <leader>e :CocCommand explorer<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
