@@ -41,12 +41,12 @@ m('n', '<A-v>', 'vsp')
 m('n', '<A-n>', 'sp')
 
 -- Terminal
-m('n', '<C-Enter>', 'lua require "utils.terminal".toggle("terminal")')
-m('t', '<C-Enter>', 'lua require "utils.terminal".toggle("terminal")')
+m('n', '<C-Enter>', 'lua require "utils.terminal".toggle()')
+m('t', '<C-Enter>', 'lua require "utils.terminal".toggle()')
 -- map('t', '<leader>q', 'lua require "utils.terminal".toggle()')
 
-m('n', '<C-Bslash>', 'lua require "utils.terminal".toggle("shell")')
-m('t', '<C-Bslash>', 'lua require "utils.terminal".toggle("shell")')
+m('n', '<C-Bslash>', 'lua require "utils.shell".toggle()')
+m('t', '<C-Bslash>', 'lua require "utils.shell".toggle()')
 
 -- map('t', '<leader>D', 'lua require "dap".step_over()')
 m('t', '<C-n>', 'stopinsert')

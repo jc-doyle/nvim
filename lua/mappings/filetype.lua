@@ -8,8 +8,6 @@ end
 local M = {}
 
 function M.r()
-	bmap('n', '<C-Bslash>', '<cmd>call SendLineToR("stay")<cr>')
-	bmap('n', '<S-Bslash>', '<cmd>call SendParagraphToR("echo", "stay")<cr>')
 	bmap('n', '<leader>o', '<cmd>call RObjBrowser()<cr>')
 	bmap('n', '<S-k>', '<cmd>call RObjBrowser()<cr>')
 end
