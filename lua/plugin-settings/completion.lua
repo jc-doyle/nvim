@@ -76,10 +76,10 @@ local function format(entry, item)
 end
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
-		end,
+  snippet = {
+    expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+    end
 	},
 	documentation = {
 		border = {'', '', '', ' ', '', '', '', ' '},
@@ -94,11 +94,14 @@ cmp.setup({
 		{name = "ultisnips"},
 		{name = "latex_symbols"},
 		{name = "pandoc_references"},
-
+		{name = "luasnip"},
 		-- {name = "vsnip"},
 		-- {name = "spell"},
 	},
 	formatting = {format = format},
 	mapping = mappings,
-	autocomplete = false
+	autocomplete = false,
+  view = {
+    entries = 'native'
+  }
 })

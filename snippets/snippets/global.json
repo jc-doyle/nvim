@@ -1,0 +1,7 @@
+{
+  "modeline": {
+    "prefix" : "mdl",
+    "body" : ["vim: set filetype=$1"],
+    "description" : "modeline"
+  }
+}

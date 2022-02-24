@@ -31,12 +31,12 @@ local function generate(context)
 		component('StHint', s.folder())
 	}
 
-	active.center = {
-		component('StError', s.diag_errors()),
-		component('StWarn', s.diag_warnings()),
-		component('StHint', s.diag_hints()),
-		component('StInfo', s.diag_info())
-	}
+	-- active.center = {
+	-- 	component('StError', s.diag_errors()),
+	-- 	component('StWarn', s.diag_warnings()),
+	-- 	component('StHint', s.diag_hints()),
+	-- 	component('StInfo', s.diag_info())
+	-- }
 
 	active.right = {
 		component('StHint', s.git_branch()),

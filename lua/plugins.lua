@@ -30,19 +30,20 @@ return packer.startup(function()
 			"hrsh7th/cmp-nvim-lsp",
 	    "f3fora/cmp-spell",
 	    "jc-doyle/cmp-latex-symbols",
-      "jc-doyle/cmp-nvim-ultisnips",
-      "jc-doyle/cmp-pandoc-references"
+      "jc-doyle/cmp-pandoc-references",
+      "saadparwaiz1/cmp_luasnip"
 		},
 		config = function()
 			require("plugin-settings.completion")
 		end,
 	}
   use {
-    "SirVer/ultisnips",
-		config = function()
-			require("plugin-settings.snippets")
-		end,
+    "L3MON4D3/LuaSnip",
+  		config = function()
+  			require("plugin-settings.snippets")
+  		end,
   }
+
 	-- Tree Sitter ------------------------------------------------------
 	use {
 		"nvim-treesitter/nvim-treesitter",
@@ -54,13 +55,13 @@ return packer.startup(function()
 	use "nvim-treesitter/playground"
 	use "nvim-treesitter/nvim-treesitter-refactor"
 	-- Git --------------------------------------------------------------
-	-- use {
-	-- 	"lewis6991/gitsigns.nvim",
-	-- 	config = function()
-	-- 		require("plugin-settings.gitsigns")
-	--     end,
-	--     event = "BufRead"
-	-- }
+	use {
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("plugin-settings.gitsigns")
+	    end,
+	    event = "BufRead"
+	}
 	use "tpope/vim-fugitive"
 
 
@@ -82,14 +83,14 @@ return packer.startup(function()
 		cmd = "FormatWrite",
 	}
 
-	use {
-		"terrortylor/nvim-comment",
-		config = function()
-			require("nvim_comment").setup()
-		end,
-		event = "BufRead",
-	}
-
+ 	use {
+ 		"terrortylor/nvim-comment",
+ 		config = function()
+ 			require("nvim_comment").setup()
+ 		end,
+ 		event = "BufRead",
+ 	}
+-- 
 	use {
 		"windwp/nvim-autopairs",
 		config = function()
@@ -141,39 +142,33 @@ return packer.startup(function()
 			require("plugin-settings.scrollbar")
 		end
 	}
-	-- use {
-	-- 	"kyazdani42/nvim-tree.lua",
-	-- 	config = function()
-	-- 		require("plugin-settings.filetree")
-	-- 	end
-	-- }
 	use {
 		"simrat39/symbols-outline.nvim",
 		config = function()
 			require("plugin-settings.outline")
 		end,
 		lock = true,
-    cmd = "SymbolsOutline"
+	    cmd = "SymbolsOutline"
 	}
 	use {
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			require("plugin-settings.telescope")
-    end
+	    end
 	}
-	use {
-		"mhinz/vim-startify",
-		setup = function()
-			require("plugin-settings.dashboard")
-		end
-	}
-	use {
-		"karb94/neoscroll.nvim",
-		event = "WinScrolled",
-		config = function()
-			require("neoscroll").setup()
-		end
-	}
+	-- use {
+	-- 	"mhinz/vim-startify",
+	-- 	setup = function()
+	-- 		require("plugin-settings.dashboard")
+	-- 	end
+	-- }
+	-- use {
+	-- 	"karb94/neoscroll.nvim",
+	-- 	event = "WinScrolled",
+	-- 	config = function()
+	-- 		require("neoscroll").setup()
+	-- 	end
+	-- }
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
@@ -195,7 +190,7 @@ return packer.startup(function()
 	-- Language Specific -----------------------------------------------
 	use "Vimjas/vim-python-pep8-indent"
 	use "vim-pandoc/vim-pandoc-syntax"
-	use "lervag/vimtex"
+	-- use "lervag/vimtex"
 	use "jalvesaq/Nvim-R"
 	use "mfussenegger/nvim-jdtls"
 end)

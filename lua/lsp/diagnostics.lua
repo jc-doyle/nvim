@@ -1,4 +1,3 @@
-
 local lsp = vim.lsp
 
 local signs = {
@@ -24,7 +23,7 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
 )
 
 require 'trouble'.setup({
-  use_lsp_diagnostic_signs = true,
+  use_diagnostic_signs = true,
 	indent_lines = false,
   auto_close = true,
   icons = false,
