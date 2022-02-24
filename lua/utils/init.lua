@@ -1,26 +1,20 @@
-local source = {}
-local bib = require 'cmp-pandoc-citations.bibliography'
+local M = {}
 
-source.new = function()
-	return setmetatable({}, {__index = source})
-end
+function M.open_snippets()
+  local ft = vim.bo.filetype
+  local path = vim.fn.stdpath('config') .. "/snippets/snippets/" .. ft .. ".json"
 
-source.is_available = function()
-	return vim.o.filetype == 'pandoc' or vim.o.filetype == 'markdown'
-end
-
-source.get_trigger_characters = function()
-	return {'@'}
-end
-
-source.complete = function(self, request, callback)
-  local references = bib.get_bibliography()
-
-  if references then
-    self.items = references
-    callback(self.items)
+  if vim.fn.filereadable(path) == 1 then
+    local cmd = ":e " .. path
+    vim.cmd(cmd)
+  else
+    print("No such snippet file.")
   end
-
 end
 
-require('cmp').register_source(source.new())
+function M.refresh_snippets()
+  require("luasnip").cleanup()
+  require("luasnip.loaders.from_vscode").load({ paths = {vim.fn.stdpath('config') .. "/snippets"}})
+end
+
+return M

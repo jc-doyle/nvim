@@ -1,4 +1,4 @@
-local cmd = vim.fn.stdpath('data')..'/lsp/lua/sumneko-lua-language-server'
+local cmd = vim.fn.stdpath('data')..'/lsp/lua/bin/lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -20,11 +20,12 @@ local config = {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
-        preloadFileSize = 300
+        preloadFileSize = 300,
+        checkThirdParty = false,
       },
       telemetry = {
         enable = false,
-      }
+      },
     }
   }
 }

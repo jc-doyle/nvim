@@ -1,4 +1,5 @@
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 
 local feedkey = function(key, mode)
 	vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode)
@@ -11,26 +12,22 @@ vim.api.nvim_set_keymap(
 	{expr = true, noremap = true}
 )
 
-
 local M = {
 	["<CR>"] = cmp.mapping(
 		function(fallback)
-			if (vim.fn["UltiSnips#CanExpandSnippet"]() == 1 or vim.fn[
-				"UltiSnips#CanJumpForwards"
-			]() == 1) then
-				feedkey("<A-S-N>", "i")
-			else
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
 				fallback()
 			end
 		end,
 		{"i", "s"}
 	),
 
-
 	["<S-CR>"] = cmp.mapping(
 		function(fallback)
-			if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-				feedkey("<A-S-P>", "i")
+			if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -39,8 +36,8 @@ local M = {
 	),
 
 	["<Tab>"] = function()
-		if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-			feedkey("<A-S-N>", "i")
+		if luasnip.expand() then
+      luasnip.expand()
 		elseif vim.fn.pumvisible() == 1 then
 			feedkey("<C-Space>", "i")
 		else

@@ -1,7 +1,18 @@
-local cmd = vim.fn.stdpath('data')..'/lsp/python/node_modules/.bin/pyright-langserver'
+local cmd = 'pylsp'
 
 local config = {
-  cmd = {cmd, '--stdio'},
+  cmd = {cmd},
+  filetypes = { "python "},
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true
+      }
+    }
+  },
+  single_file_support = true
 }
 
 return config

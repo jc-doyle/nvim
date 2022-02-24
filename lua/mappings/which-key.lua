@@ -9,7 +9,6 @@ local mappings = {
 	h = {'<cmd>Telescope help_tags<cr>', 'help'},
 	F = {'<cmd>Telescope find_files<cr>', 'find files'},
 	C = {'<cmd>ColorizerToggle<cr>', 'colorizer'},
-	S = {'<cmd>UltiSnipsEdit<cr>', 'snippet'},
 	f = {'<cmd>FormatWrite<cr>', 'format'},
 	a = {
 		name = '+actions',
@@ -22,6 +21,11 @@ local mappings = {
 		h = {'<cmd>set conceallevel=2<cr>', 'conceal'},
 		c = {'<cmd>set conceallevel=0<cr>', 'no-conceal'},
 		w = {'<cmd>set wrap!<cr>', 'wrap'},
+	},
+	S = {
+		name = '+snippet',
+	  s = {'<cmd>lua require "utils".open_snippets()<cr>', 'edit'},
+		u = {'<cmd>lua require "utils".refresh_snippets()<cr>', 'refresh'},
 	},
 	l = {
 		name = '+lsp',
