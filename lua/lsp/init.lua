@@ -4,13 +4,13 @@ local servers = {
 	lua = 'sumneko_lua',
 	go = 'gopls',
 	java = 'jdtls',
-	python = 'pyright',
+	python = 'jedi_language_server',
 	r = 'r_language_server',
 	json = 'jsonls',
 	sh = 'bashls',
 	zsh = 'bashls',
 	latex = 'texlab',
-	cpp = 'ccls'
+	c = 'ccls'
 }
 
 local on_attach = function(client, bufnr)

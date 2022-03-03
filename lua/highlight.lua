@@ -188,6 +188,16 @@ hl("TSWarning", colors.base2, colors.none)
 hl("TSDefinitionUsage", colors.none, colors.none, underline)
 hl("TSDefinition", colors.none, colors.base1:light(0.05), underline)
 
+-- Diff Files
+hl("diffRemoved", colors.base10, colors.none)
+hl("diffAdded", colors.base8, colors.none)
+hl("diffLine", colors.base11, colors.none, bold)
+hl("diffSubname", colors.base14, colors.none, italic)
+hl("diffFile", colors.base6, colors.none, italic)
+hl("diffOldFile", colors.base14, colors.none, italic)
+hl("diffNewFile", colors.base12, colors.none, italic)
+hl("diffIndexLine", colors.base2, colors.none, italic)
+
 -- Quickfix
 hl("qfFileName", colors.base6, colors.none)
 hl("qfSeparator", colors.base0, colors.none)
@@ -243,16 +253,16 @@ hl("FloatermBorder", colors.base6, colors.base0)
 hl("IndentBlanklineChar", colors.base0:light(0.02), colors.none)
 hl("IndentBlanklineContextChar", colors.base2, colors.none, bold)
 
-hl("GitSignsAdd", colors.base10, colors.none)
-hl("GitSignsAddNr", colors.base10, colors.none)
-hl("GitSignsAddLn", colors.base5, colors.base10)
+hl("GitSignsAdd", colors.base8, colors.none)
+hl("GitSignsAddNr", colors.base13, colors.none)
+hl("GitSignsAddLn", colors.base2, colors.base10)
 
-hl("GitSignsChange", colors.base11, colors.none)
-hl("GitSignsChangeNr", colors.base11, colors.none)
+hl("GitSignsChange", colors.base15, colors.none)
+hl("GitSignsChangeNr", colors.base15, colors.none)
 hl("GitSignsChangeLn", colors.base5, colors.base11)
 
-hl("GitSignsDelete", colors.base7, colors.none)
-hl("GitSignsDeleteNr", colors.base7, colors.none)
+hl("GitSignsDelete", colors.base10, colors.none)
+hl("GitSignsDeleteNr", colors.base10, colors.none)
 hl("GitSignsDeleteLn", colors.base5, colors.base7)
 
 hl("GitSignsCurrentLineBlame", colors.base3, colors.none, italic)

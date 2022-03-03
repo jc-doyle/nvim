@@ -68,10 +68,12 @@ local mappings = {
 	},
 	g = {
 		name = '+git',
-		s = {'<cmd>Gitsigns toggle_signs<cr>', 'signs'},
+		s = {'<cmd>Gitsigns toggle_numhl<cr>', 'signs'},
 		C = {'<cmd>Git commit<cr>', 'commit'},
 		a = {'<cmd>Git add %<cr>', 'add current'},
 		A = {'<cmd>Git add .<cr>', 'add all'},
+		n = {'<cmd>Gitsigns next_hunk<cr>', 'next hunk'},
+		p = {'<cmd>Gitsigns prev_hunk<cr>', 'prev hunk'},
 		S = {'<cmd>Git status<cr>', 'status'},
 		P = {'<cmd>Git push<cr>', 'push'},
 		b = {'<cmd>Gitsigns blame_line<cr>', 'line blame'},
@@ -121,6 +123,7 @@ local mappings = {
 		},
 		m = {'<cmd>silent exec "!make"<cr>', 'make'},
 		v = {'<cmd>silent exec "!make view"<cr>', 'view'},
+		V = {'<cmd>silent exec "!make view-remote"<cr>', 'view'},
 	},
 }
 
