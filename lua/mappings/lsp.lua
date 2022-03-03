@@ -4,8 +4,7 @@ function M.set(client, bufnr)
 	local function map(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
-
-	-- Mappings.
+-- Mappings.
 	local opts = {noremap = true, silent = true}
 	map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 	map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
