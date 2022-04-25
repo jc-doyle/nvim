@@ -17,7 +17,7 @@ require 'bqf'.setup({
 		},
 		delay_syntax = 50,
 		win_height = 15,
-		win_vheight = 15,
+		win_vheight = 10,
 		wrap = false,
 		should_preview_cb = nil
 	},

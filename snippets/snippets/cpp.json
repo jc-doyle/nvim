@@ -35,7 +35,7 @@
   "fun": {
     "prefix": "function",
     "body": ["${1:void} ${2:name} ($3) {", "\t$0", "}"],
-    "description": "Code snippet for if statement"
+    "description": "Function"
   },
   "if": {
     "prefix": "if",
@@ -163,7 +163,7 @@
   },
   "cout": {
     "prefix": "cout",
-    "body": ["std::cout << $0"],
+    "body": ["std::cout << $0 << '\\n';"],
     "description": "Code snippet for printing to std::cout, provided the header is set"
   },
   "cin": {

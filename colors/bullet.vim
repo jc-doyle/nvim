@@ -1,4 +1,4 @@
-let g:colors_name = "aeloa"
+let g:colors_name = "bullet"
 set background=dark
 
 " %%base16_template: vim##default %%

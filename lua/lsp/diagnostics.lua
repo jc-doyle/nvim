@@ -15,9 +15,9 @@ end
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
 	lsp.diagnostic.on_publish_diagnostics,
 	{
-		underline = false,
+		underline = true,
 		signs = false,
-		virtual_text = {prefix = "⠶", spacing = 2},
+		virtual_text = {prefix = "⠶", spacing = 1},
 		update_in_insert = false
 	}
 )
@@ -33,3 +33,4 @@ require 'trouble'.setup({
   }
 })
 
+-- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
