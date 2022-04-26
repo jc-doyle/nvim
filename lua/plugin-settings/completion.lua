@@ -81,11 +81,13 @@ cmp.setup({
         require('luasnip').lsp_expand(args.body)
     end
 	},
-	documentation = {
-		border = {'', '', '', ' ', '', '', '', ' '},
-		winhighlight = 'NormalFloat:NormalFloat,FloatBorder:NormalFloat',
-		maxwidth = 40,
-		maxheight = 15
+  window = {
+    documentation = {
+      border = {'', '', '', ' ', '', '', '', ' '},
+      winhighlight = 'NormalFloat:NormalFloat,FloatBorder:NormalFloat',
+      maxwidth = 40,
+      maxheight = 15
+  }
 	},
 	sources = {
 		{name = "nvim_lsp"},

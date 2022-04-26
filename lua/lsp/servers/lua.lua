@@ -1,4 +1,4 @@
-local cmd = vim.fn.stdpath('data')..'/lsp/lua/bin/lua-language-server'
+local cmd = vim.fn.stdpath('data')..'/lsp/lua/sumneko-lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
