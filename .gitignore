@@ -1,2 +1,2 @@
-plugin/
-snippet/
+plugin/*
+snippets/*
