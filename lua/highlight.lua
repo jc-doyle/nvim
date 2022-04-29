@@ -244,15 +244,15 @@ hl("IndentBlanklineChar", colors.base0:light(0.02), colors.none)
 hl("IndentBlanklineContextChar", colors.base2, colors.none, bold)
 
 hl("GitSignsAdd", colors.base10, colors.none)
-hl("GitSignsAddNr", colors.base10, colors.none)
+hl("GitSignsAddNr", colors.base13, colors.none)
 hl("GitSignsAddLn", colors.base5, colors.base10)
 
 hl("GitSignsChange", colors.base11, colors.none)
-hl("GitSignsChangeNr", colors.base11, colors.none)
+hl("GitSignsChangeNr", colors.base15, colors.none)
 hl("GitSignsChangeLn", colors.base5, colors.base11)
 
 hl("GitSignsDelete", colors.base7, colors.none)
-hl("GitSignsDeleteNr", colors.base7, colors.none)
+hl("GitSignsDeleteNr", colors.base10, colors.none)
 hl("GitSignsDeleteLn", colors.base5, colors.base7)
 
 hl("GitSignsCurrentLineBlame", colors.base3, colors.none, italic)
