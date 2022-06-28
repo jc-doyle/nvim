@@ -10,7 +10,8 @@ local servers = {
 	sh = 'bashls',
 	zsh = 'bashls',
 	latex = 'texlab',
-	cpp = 'ccls'
+	cpp = 'ccls',
+	vue = 'vls'
 }
 
 local on_attach = function(client, bufnr)
