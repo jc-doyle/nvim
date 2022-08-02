@@ -39,6 +39,15 @@ require('formatter').setup({
 					stdin = true
 				}
 			end
+		},
+		python = {
+			function()
+				return {
+					exe = "yapf",
+					args = {vim.api.nvim_buf_get_name(0)},
+					stdin = true
+				}
+			end
 		}
 	}
 })

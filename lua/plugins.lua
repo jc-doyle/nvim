@@ -24,7 +24,7 @@ return packer.startup(function()
 			require("lsp.diagnostics")
 		end
 	}
-	use "ray-x/lsp_signature.nvim"
+
 	use "jubnzv/virtual-types.nvim"
 
 	-- Completion & Snippets --------------------------------------------
@@ -34,6 +34,7 @@ return packer.startup(function()
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
 	    "f3fora/cmp-spell",
 	    "jc-doyle/cmp-latex-symbols",
       "jc-doyle/cmp-pandoc-references",
@@ -175,13 +176,13 @@ return packer.startup(function()
 	-- 		require("neoscroll").setup()
 	-- 	end
 	-- }
-	use {
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("plugin-settings.indent")
-		end,
-		event = "BufRead",
-	}
+	-- use {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	config = function()
+	-- 		require("plugin-settings.indent")
+	-- 	end,
+	-- 	event = "BufRead",
+	-- }
 	use {
 		"kevinhwang91/nvim-bqf",
 		config = function()

@@ -33,5 +33,4 @@ for language, name in pairs(servers) do
 	lsp[name].setup(config)
 end
 
-require 'lsp.signature'
 require 'lsp.ui'

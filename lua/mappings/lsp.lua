@@ -20,7 +20,7 @@ function M.set(client, bufnr)
 	map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
 	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.document_formatting then
 		map("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	end
 end
