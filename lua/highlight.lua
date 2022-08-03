@@ -185,6 +185,7 @@ hl("TSVariable", colors.base5, colors.none)
 hl("TSVariableBuiltin", colors.base4, colors.none)
 hl("TSWarning", colors.base2, colors.none)
 
+-- Currently Disabled
 hl("TSDefinitionUsage", colors.none, colors.none, underline)
 hl("TSDefinition", colors.none, colors.base1:light(0.05), underline)
 
@@ -227,7 +228,6 @@ hl("DapStopped", colors.base6, colors.base0:light(0.02))
 hl("DapLogPoint", colors.base14, colors.base0:light(0.02))
 
 hl("NvimDapVirtualText", colors.base2, colors.base0, italic)
-
 
 hl("NvimTreeNormal", colors.base4, colors.base0)
 hl("NvimTreeRootFolder", colors.base7, colors.none, italic)

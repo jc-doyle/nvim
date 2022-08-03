@@ -12,7 +12,7 @@ require 'nvim-treesitter.configs'.setup {
 		},
 	},
 	indent = {enable = true, disable = {"python"}},
-	refactor = {highlight_definitions = {enable = true}},
+	refactor = {highlight_definitions = {enable = false}},
 	textobjects = {
 		select = {
 			enable = true,
