@@ -1,7 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
 	ensure_installed = "all",
   autopairs = {enable = false},
-	highlight = {enable = true, disable = {"r", "markdown"}},
+	highlight = {enable = true, disable = {"c", "cpp", "r", "markdown"}},
 	incremental_selection = {
 		enable = true,
 		keymaps = {
