@@ -53,8 +53,8 @@ hl('Pmenu', colors.base3, colors.base1:light(0.03))
 hl('PmenuSel', colors.base5, colors.base1:light(0.06))
 hl('PmenuSbar', colors.none, colors.base1:dark(0.02))
 hl('PmenuThumb', colors.none, colors.base1:light(0.05))
-hl('NormalFloat', colors.none, colors.base1:light(0.03))
-hl("FloatBorder", colors.base2, colors.base1:dark(0.03))
+hl('NormalFloat', colors.none, colors.base1:dark(0.03))
+hl("FloatBorder", colors.base2, colors.base1:dark(0.03), bold)
 
 -- StatusLine
 hl('StError', colors.base7, colors.base0)
