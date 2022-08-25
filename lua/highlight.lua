@@ -1,3 +1,5 @@
+require 'utils.color'
+local au = require 'utils.general'.autocmd
 local Color, colors, Group, _, styles = require 'colorbuddy'.setup()
 local hl = Group.new
 
@@ -7,30 +9,34 @@ local italic = styles.italic
 local underline = styles.underline
 local strikethrough = styles.strikethrough
 
-local au = require 'utils.general'.autocmd
-
 vim.g.colors_name = 'default'
 
-require 'colors.util'
-local template = require 'colors.colors'
+-- ------ colors ------
+local template = {
+  base0 = "#2E3647",
+  base1 = "#3A4458",
+  base2 = "#5E6A83",
+  base3 = "#A0AECB",
+  base4 = "#D7E1F5",
+  base5 = "#F4F8FF",
+  base6 = "#9ADBFF",
+  base7 = "#FF79C2",
+  base8 = "#8FFFBC",
+  base9 = "#E8FFA6",
+  base10 = "#FF92AC",
+  base11 = "#FDAFFF",
+  base12 = "#94F2FF",
+  base13 = "#B7E1FF",
+  base14 = "#9CABDF",
+  base15 = "#9CA6FF",
+}
 
--- Assigned Colors
-Color.new('base0', template.base0)
-Color.new('base1', template.base1)
-Color.new('base2', template.base2)
-Color.new('base3', template.base3)
-Color.new('base4', template.base4)
-Color.new('base5', template.base5)
-Color.new('base6', template.base6)
-Color.new('base7', template.base7)
-Color.new('base8', template.base8)
-Color.new('base9', template.base9)
-Color.new('base10', template.base10)
-Color.new('base11', template.base11)
-Color.new('base12', template.base12)
-Color.new('base13', template.base13)
-Color.new('base14', template.base14)
-Color.new('base15', template.base15)
+-- ------ colors ------
+
+-- Assign Colors
+for index, value in pairs(template) do
+  Color.new(index, value)
+end
 
 -- HIGHLIGHTS
 -- Base
@@ -219,6 +225,7 @@ hl('BufferInactiveMod', colors.base2, colors.base0)
 hl('BufferCurrentTarget', colors.base14, colors.base6, bold)
 hl('BufferInactiveTarget', colors.base14, colors.base1, bold)
 hl('BufferVisibleTarget', colors.base14, colors.base2, bold)
+hl('BufferTabpageFill', colors.base0, colors.base0, bold)
 
 hl("Scrollbar", colors.none, colors.base0:light(0.04))
 
