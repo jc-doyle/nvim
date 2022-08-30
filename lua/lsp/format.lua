@@ -43,7 +43,7 @@ require('formatter').setup({
 		python = {
 			function()
 				return {
-					exe = "yapf",
+					exe = "autopep8",
 					args = {vim.api.nvim_buf_get_name(0)},
 					stdin = true
 				}

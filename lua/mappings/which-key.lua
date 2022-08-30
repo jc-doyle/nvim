@@ -9,7 +9,6 @@ local mappings = {
 	h = {'<cmd>Telescope help_tags<cr>', 'help'},
 	F = {'<cmd>Telescope find_files<cr>', 'find files'},
 	C = {'<cmd>ColorizerToggle<cr>', 'colorizer'},
-	f = {'<cmd>FormatWrite<cr>', 'format'},
 	a = {
 		name = '+actions',
 		s = {'<cmd>so<cr>', 'source'},
@@ -24,7 +23,7 @@ local mappings = {
 	},
 	S = {
 		name = '+snippet',
-	  s = {'<cmd>lua require "utils".open_snippets()<cr>', 'edit'},
+		s = {'<cmd>lua require "utils".open_snippets()<cr>', 'edit'},
 		u = {'<cmd>lua require "utils".refresh_snippets()<cr>', 'refresh'},
 	},
 	l = {
@@ -94,6 +93,10 @@ local mappings = {
 		},
 		m = {
 			'<cmd>e ~/other/dotfiles/config/nvim/lua/mappings/general.lua<cr>',
+			'mappings'
+		},
+		M = {
+			'<cmd>e ~/other/dotfiles/config/nvim/lua/mappings/lsp.lua<cr>',
 			'mappings'
 		},
 		w = {

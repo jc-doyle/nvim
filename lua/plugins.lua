@@ -1,7 +1,14 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	packer_bootstrap = fn.system({
+		'git',
+		'clone',
+		'--depth',
+		'1',
+		'https://github.com/wbthomason/packer.nvim',
+		install_path
+	})
 end
 
 local packer = require("packer")
@@ -10,11 +17,11 @@ local use = packer.use
 return packer.startup(function()
 	use "wbthomason/packer.nvim"
 
-	-- LSP ----------------------------------------
+	-- LSP & Related ----------------------------------------
 	use {
 		"neovim/nvim-lspconfig",
 		config = function()
-		require("lsp")
+			require("lsp")
 		end
 	}
 
@@ -25,7 +32,15 @@ return packer.startup(function()
 		end
 	}
 
-	use "jubnzv/virtual-types.nvim"
+	use {
+		"mhartington/formatter.nvim",
+		config = function()
+			require("lsp.format")
+		end,
+		cmd = "FormatWrite",
+	}
+
+	-- use "jubnzv/virtual-types.nvim"
 
 	-- Completion & Snippets --------------------------------------------
 	use {
@@ -34,22 +49,22 @@ return packer.startup(function()
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-	    "f3fora/cmp-spell",
-	    "jc-doyle/cmp-latex-symbols",
-      "jc-doyle/cmp-pandoc-references",
-      "saadparwaiz1/cmp_luasnip"
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"f3fora/cmp-spell",
+			"jc-doyle/cmp-latex-symbols",
+			"jc-doyle/cmp-pandoc-references",
+			"saadparwaiz1/cmp_luasnip"
 		},
 		config = function()
 			require("plugin-settings.completion")
 		end,
 	}
-  use {
-    "L3MON4D3/LuaSnip",
-  		config = function()
-  			require("plugin-settings.snippets")
-  		end,
-  }
+	use {
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("plugin-settings.snippets")
+		end,
+	}
 
 	-- Tree Sitter ------------------------------------------------------
 	use {
@@ -61,16 +76,16 @@ return packer.startup(function()
 	use "nvim-treesitter/nvim-treesitter-textobjects"
 	use "nvim-treesitter/playground"
 	use "nvim-treesitter/nvim-treesitter-refactor"
+
 	-- Git --------------------------------------------------------------
 	use {
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("plugin-settings.gitsigns")
-	    end,
-	    event = "BufRead"
+		end,
+		event = "BufRead"
 	}
 	use "tpope/vim-fugitive"
-
 
 	-- use "abecodes/tabout.nvim"
 
@@ -83,21 +98,14 @@ return packer.startup(function()
 	}
 
 	use {
-		"mhartington/formatter.nvim",
+		"terrortylor/nvim-comment",
 		config = function()
-			require("plugin-settings.format")
+			require("nvim_comment").setup()
 		end,
-		cmd = "FormatWrite",
+		event = "BufRead",
 	}
 
- 	use {
- 		"terrortylor/nvim-comment",
- 		config = function()
- 			require("nvim_comment").setup()
- 		end,
- 		event = "BufRead",
- 	}
--- 
+	-- 
 	use {
 		"windwp/nvim-autopairs",
 		config = function()
@@ -155,14 +163,15 @@ return packer.startup(function()
 			require("plugin-settings.outline")
 		end,
 		lock = true,
-	    cmd = "SymbolsOutline"
+		cmd = "SymbolsOutline"
 	}
 	use {
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			require("plugin-settings.telescope")
-	    end
+		end
 	}
+
 	-- use {
 	-- 	"mhinz/vim-startify",
 	-- 	setup = function()
@@ -191,12 +200,13 @@ return packer.startup(function()
 	}
 	use "kyazdani42/nvim-web-devicons"
 	use "junegunn/goyo.vim"
-  use "SmiteshP/nvim-gps"
+	use "SmiteshP/nvim-gps"
 	use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
 
 	-- Language Specific -----------------------------------------------
 	use "Vimjas/vim-python-pep8-indent"
 	use "vim-pandoc/vim-pandoc-syntax"
+
 	-- use "lervag/vimtex"
 	use "jalvesaq/Nvim-R"
 	use "mfussenegger/nvim-jdtls"
