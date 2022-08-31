@@ -171,27 +171,6 @@ return packer.startup(function()
 			require("plugin-settings.telescope")
 		end
 	}
-
-	-- use {
-	-- 	"mhinz/vim-startify",
-	-- 	setup = function()
-	-- 		require("plugin-settings.dashboard")
-	-- 	end
-	-- }
-	-- use {
-	-- 	"karb94/neoscroll.nvim",
-	-- 	event = "WinScrolled",
-	-- 	config = function()
-	-- 		require("neoscroll").setup()
-	-- 	end
-	-- }
-	-- use {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	config = function()
-	-- 		require("plugin-settings.indent")
-	-- 	end,
-	-- 	event = "BufRead",
-	-- }
 	use {
 		"kevinhwang91/nvim-bqf",
 		config = function()

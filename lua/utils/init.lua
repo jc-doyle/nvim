@@ -2,7 +2,7 @@ local M = {}
 
 function M.open_snippets()
   local ft = vim.bo.filetype
-  local path = vim.fn.stdpath('config') .. "/snippets/snippets/" .. ft .. ".json"
+  local path = vim.fn.stdpath('config') .. "/snippets/" .. ft .. ".snippets"
 
   if vim.fn.filereadable(path) == 1 then
     local cmd = ":e " .. path
@@ -14,7 +14,7 @@ end
 
 function M.refresh_snippets()
   require("luasnip").cleanup()
-  require("luasnip.loaders.from_vscode").load({ paths = {vim.fn.stdpath('config') .. "/snippets"}})
+  require("luasnip.loaders.from_snipmate").lazy_load()
 end
 
 return M
