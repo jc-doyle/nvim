@@ -1,35 +1,33 @@
 local d = vim.diagnostic
 
+local function upper(str)
+	return (str:gsub("^%l", string.upper))
+end
+
+-- Filter specific diagnostics (e.g remove error codes)
+local function filter(diagnostic)
+	local m = diagnostic.message
+	if vim.bo.filetype == 'python' then
+		if diagnostic.source == 'pycodestyle' then
+			return upper(m:gsub("^.-%s", "", 1))
+		end
+	end
+	return m
+end
+
 d.config({
-  underline = false,
-  signs = false,
-  virtual_text = {
-    prefix = "⠶",
-    spacing = 3
+	underline = false,
+	signs = false,
+	virtual_text = {prefix = "•", format = filter, spacing = 3},
+  severity_sort = {
+    reverse = false
   }
 })
 
-local signs = {
-	Error = '',
-	Warning = '',
-	Hint = '',
-	Information = ''
-}
-
-for type, icon in pairs(signs) do
-	local hl = "LspDiagnosticsSign" .. type
-	vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
-end
-
-
 require 'trouble'.setup({
-	use_diagnostic_signs = true,
-	indent_lines = false,
-	auto_close = true,
-	icons = false,
 	action_keys = {
-		cancel = {},
 		close = {"q", "<esc>"},
-	}
+	},
 })
 
+-- Add to global namesapce for keybinds

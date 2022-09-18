@@ -40,6 +40,13 @@ return packer.startup(function()
 		cmd = "FormatWrite",
 	}
 
+	use {
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup()
+		end,
+	}
+
 	-- use "jubnzv/virtual-types.nvim"
 
 	-- Completion & Snippets --------------------------------------------
@@ -105,7 +112,6 @@ return packer.startup(function()
 		event = "BufRead",
 	}
 
-	-- 
 	use {
 		"windwp/nvim-autopairs",
 		config = function()

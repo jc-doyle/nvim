@@ -29,8 +29,10 @@ local mappings = {
 	l = {
 		name = '+lsp',
 		c = {'<cmd>lua vim.lsp.buf.code_action()<cr>', 'code action'},
-		t = {'<cmd>Trouble lsp_document_diagnostics<cr>', 'file diag.'},
-		T = {'<cmd>Trouble lsp_workspace_diagnostics<cr>', 'global diag.'},
+		t = {'<cmd>Trouble document_diagnostics<cr>', 'file diag.'},
+		T = {'<cmd>Trouble workspace_diagnostics<cr>', 'global diag.'},
+		d = {'<cmd>lua vim.diagnostic.disable()<cr>', 'disable'},
+		D = {'<cmd>lua vim.diagnostic.enable()<cr>', 'enable'},
 	},
 	T = {
 		name = '+treesitter',
@@ -38,7 +40,7 @@ local mappings = {
 	},
 	D = {'<cmd>lua require"dap".step_over()<cr>', 'debug next'},
 	d = {
-		name = '+debug',
+		name = '+diagnostic',
 		d = {'<cmd>lua require"dap".continue()<cr>', 'start'},
 		b = {'<cmd>lua require"dap".toggle_breakpoint()<cr>', 'breakpoint'},
 		r = {'<cmd>lua require"dap".repl.toggle()<cr>', 'repl'},
@@ -53,7 +55,8 @@ local mappings = {
 		c = {'<cmd>Telescope command_history<cr>', 'command history'},
 		s = {'<cmd>Telescope search_history<cr>', 'searches'},
 		o = {'<cmd>Telescope oldfiles<cr>', 'old files'},
-		r = {'<cmd>Telescope registers<cr>', 'registers'},
+		R = {'<cmd>Telescope registers<cr>', 'registers'},
+		r = {'<cmd>Telescope live_grep<cr>', 'grep'},
 		O = {'<cmd>Telescope vim_options<cr>', 'vim options'},
 		y = {'<cmd>Telescope neoclip<cr>', 'neoclip'},
 	},

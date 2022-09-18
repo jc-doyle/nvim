@@ -64,7 +64,7 @@ hl("FloatBorder", colors.base2, colors.base1:dark(0.03), bold)
 
 -- StatusLine
 hl('StError', colors.base7, colors.base0)
-hl('StWarn', colors.base9, colors.base0)
+hl('StWarn', colors.base14, colors.base0)
 hl('StHint', colors.base2, colors.base0)
 hl('StInfo', colors.base1, colors.base0)
 
@@ -197,9 +197,10 @@ hl("TSDefinition", colors.none, colors.base1:light(0.05), underline)
 
 -- Quickfix
 hl("qfFileName", colors.base6, colors.none)
-hl("qfSeparator", colors.base0, colors.none)
+hl("qfSeparatorLeft", colors.base3, colors.none)
+hl("qfSeparatorRight", colors.base3, colors.none)
 hl("qfLineNr", colors.base2, colors.none, italic)
-hl("QuickFixLine", colors.none, colors.base0:light(0.03))
+hl("QuickFixLine", colors.none, colors.none, bold)
 hl("BqfPreviewBorder", colors.base14, colors.none)
 hl("BqfPreviewCursor", colors.none, colors.base2)
 
@@ -264,26 +265,15 @@ hl("GitSignsDeleteLn", colors.base5, colors.base7)
 
 hl("GitSignsCurrentLineBlame", colors.base3, colors.none, italic)
 
-hl("CompeDocumentation", colors.none, colors.base0)
-hl("CompeDocumentationBorder", colors.base6, colors.base0)
+hl("CmpDocumentationNormal", colors.base4, colors.base0:light(0.05), italic)
 
 hl("LspSignature", colors.base6, colors.none, bold)
 
 -- Lsp
-hl("DiagnosticSignError", colors.base10, colors.base0)
-hl("DiagnosticSignWarn", colors.base9, colors.base0)
-hl("DiagnosticSignInfo", colors.base3, colors.base0)
-hl("DiagnosticSignHint", colors.base2, colors.base0)
-
-hl("DiagnosticVirtualTextError", colors.base10, colors.none, italic)
-hl("DiagnosticVirtualTextWarn", colors.base9, colors.none, italic)
-hl("DiagnosticVirtualTextInfo", colors.base3, colors.none, italic)
-hl("DiagnosticVirtualTextHint", colors.base2, colors.none, italic)
-
-hl("DiagnosticUnderlineError", colors.none, colors.none, underline)
-hl("DiagnosticUnderlineWarn", colors.none, colors.none, underline)
-hl("DiagnosticUnderlineInfo", colors.none, colors.none)
-hl("DiagnosticUnderlineHint", colors.none, colors.none)
+hl("DiagnosticError", colors.base10, colors.none, italic)
+hl("DiagnosticWarn", colors.base14, colors.none, italic)
+hl("DiagnosticInfo", colors.base2, colors.none, italic)
+hl("DiagnosticHint", colors.base2, colors.none, italic)
 
 hl("TroubleFile", colors.base6, colors.none, italic)
 hl("TroubleCount", colors.base11, colors.base0:light(0.02))

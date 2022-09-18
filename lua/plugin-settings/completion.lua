@@ -37,8 +37,8 @@ local function format_kind(entry, item)
 		item.kind = "﬘ Buffer"
 	elseif source == 'spell' then
 		item.kind = " Spell"
-	elseif source == 'ultisnips' then
-		item.abbr = item.abbr .. '~'
+	elseif source == 'luasnip' then
+		item.abbr = item.abbr
 	elseif source == 'latex_symbols' then
 		local result = {}
 		for word in string.gmatch(item.abbr, "[^%s]+") do
@@ -49,9 +49,9 @@ local function format_kind(entry, item)
 			item.kind = result[2] .. " Symbol"
 		end
 	elseif source == 'pandoc_references' then
-    if not string.match(item.abbr, '(%w+):(%g+)') then
-		  item.kind = " Citation"
-    end
+		if not string.match(item.abbr, '(%w+):(%g+)') then
+			item.kind = " Citation"
+		end
 	end
 
 	return item
@@ -76,35 +76,39 @@ local function format(entry, item)
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-        require('luasnip').lsp_expand(args.body)
-    end
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end
 	},
-  window = {
-    documentation = {
-      border = {'', '', '', ' ', '', '', '', ' '},
-      winhighlight = 'NormalFloat:NormalFloat,FloatBorder:NormalFloat',
-      maxwidth = 40,
-      maxheight = 15
-  }
+	enabled = function()
+		-- disable completion in comments
+		local context = require 'cmp.config.context'
+		if vim.api.nvim_get_mode().mode == 'c' then
+			return true
+		else
+			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+		end
+	end,
+	window = {
+		documentation = {
+			border = {'', '', '', ' ', '', '', '', ' '},
+			winhighlight = 'NormalFloat:CmpDocumentationNormal,FloatBorder:CmpDocumentationNormal',
+			maxwidth = 40,
+			maxheight = 15
+		}
 	},
 	sources = {
 		{name = "nvim_lsp"},
 		{name = "nvim_lsp_signature_help"},
 		{name = "buffer"},
 		{name = "path"},
-		{name = "ultisnips"},
 		{name = "latex_symbols"},
 		{name = "pandoc_references"},
 		{name = "luasnip"},
-		-- {name = "vsnip"},
-		-- {name = "spell"},
 	},
 	formatting = {format = format},
 	mapping = mappings,
 	autocomplete = false,
-  view = {
-    entries = 'native'
-  }
+	view = {entries = 'native'}
 })

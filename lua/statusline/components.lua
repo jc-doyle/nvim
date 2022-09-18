@@ -36,35 +36,39 @@ function M.mode()
 end
 
 function M.diag_errors()
-	if utils.diagnostics_exist('Error') then
-		return '  ' .. utils.get_diagnostics_count('Error')
+  local err = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+  if (#err > 0) and (vim.fn.mode() == 'n') then
+		return '  ' .. #err
 	else
 		return ''
-	end
+  end
 end
 
 function M.diag_warnings()
-	if utils.diagnostics_exist('Warning') then
-		return '  ' .. utils.get_diagnostics_count('Warning')
+  local warn = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARNING })
+  if (#warn > 0) and (vim.fn.mode() == 'n') then
+		return '  ' .. #warn
 	else
 		return ''
-	end
+  end
 end
 
 function M.diag_hints()
-	if utils.diagnostics_exist('Hint') then
-		return '  ' .. utils.get_diagnostics_count('Hint')
+  local hint = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+  if (#hint > 0) and (vim.fn.mode() == 'n') then
+		return '  ' .. #hint
 	else
 		return ''
-	end
+  end
 end
 
 function M.diag_info()
-	if utils.diagnostics_exist('Information') then
-		return '  ' .. utils.get_diagnostics_count('Information')
+  local info = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+  if #info > 0 then
+		return '  ' .. #info
 	else
 		return ''
-	end
+  end
 end
 
 function M.git_branch()

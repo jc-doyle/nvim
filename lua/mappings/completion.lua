@@ -40,6 +40,7 @@ local M = {
       luasnip.expand()
 		elseif vim.fn.pumvisible() == 1 then
 			feedkey("<C-Space>", "i")
+      -- cmp.mapping.complete()
 		else
 			feedkey("<Tab>", "n")
 		end
@@ -76,6 +77,8 @@ local M = {
 		end,
 		{"i", "s"}
 	),
+  ["C-S-j"] = cmp.mapping(cmp.mapping.scroll_docs(2), {"i"}),
+  ["C-S-k"] = cmp.mapping(cmp.mapping.scroll_docs(2), {"i"}),
 }
 
 return M

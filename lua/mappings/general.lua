@@ -1,7 +1,9 @@
 local options = {noremap = true, silent = true}
 
-local function m(mode, lhs, rhs)
-  rhs = '<cmd>'.. rhs .. '<cr>'
+local function m(mode, lhs, rhs, cr)
+  if cr == nil then
+    rhs = '<cmd>'.. rhs .. '<cr>'
+  end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
@@ -40,6 +42,9 @@ m('t', '<C-A-j>', 'resize 8')
 m('n', '<A-v>', 'vsp')
 m('n', '<A-n>', 'sp')
 
+m('v', '<', '<gv', false)
+m('v', '>', '>gv', false)
+
 -- Terminal
 m('n', '<C-Enter>', 'lua require "utils.terminal".toggle()')
 m('t', '<C-Enter>', 'lua require "utils.terminal".toggle()')
@@ -59,3 +64,7 @@ m('n', '<C-s>', 'w')
 
 -- Open Link
 m('n', 'gx', 'call jobstart(["xdg-open", expand("<cfile>")])')
+
+m('i', '<C-S-j>', 'lua require"cmp".scroll_docs(2)')
+m('i', '<C-S-k>', 'lua require"cmp".scroll_docs(-2)')
+
