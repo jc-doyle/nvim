@@ -1,5 +1,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
 		'git',
@@ -190,7 +191,7 @@ return packer.startup(function()
 
 	-- Language Specific -----------------------------------------------
 	use "Vimjas/vim-python-pep8-indent"
-	use "vim-pandoc/vim-pandoc-syntax"
+	-- use "vim-pandoc/vim-pandoc-syntax"
 
 	-- use "lervag/vimtex"
 	use "jalvesaq/Nvim-R"

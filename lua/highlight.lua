@@ -302,20 +302,21 @@ hl("TelescopePromptPrefix", colors.base10, colors.none)
 hl("StartifyHeader", colors.base6, colors.none)
 
 -- Language Specific
--- Markdown(pandoc)
-hl("pandocAtxHeader", colors.base6, colors.none, bold)
-hl("pandocAtxStart", colors.base11, colors.none)
-hl("pandocListItemBulletID", colors.base14, colors.none)
-hl("pandocListItemBullet", colors.base2, colors.none)
-hl("pandocReferenceDefinition", colors.base8, colors.none)
-hl("pandocOperator", colors.base15, colors.none)
-hl("pandocReferenceURL", colors.base15, colors.none)
-hl("pandocPCite", colors.base2, colors.none, italic)
-hl("pandocCiteKey", colors.base14, colors.none, italic)
-hl("pandocCiteAnchor", colors.base2, colors.none, italic)
-hl("pandocCiteLocator", colors.base2, colors.none)
-hl("pandocNoFormatted", colors.base3, colors.none, italic)
-hl("pandocCurly", colors.base2, colors.none, italic)
+-- Markdown
+
+hl("markdownH1", colors.base11, colors.none, bold)
+hl("markdownH2", colors.base6, colors.none, bold)
+hl("markdownH3", colors.base6, colors.none, italic)
+hl("markdownH4", colors.base14, colors.none, italic)
+
+hl("markdownH1Delimiter", colors.base1, colors.none, italic)
+hl("markdownH2Delimiter", colors.base1, colors.none, italic)
+hl("markdownH3Delimiter", colors.base1, colors.none, italic)
+hl("markdownH4Delimiter", colors.base1, colors.none, italic)
+hl("markdownCodeDelimiter", colors.base2, colors.none, italic)
+
+hl("markdownListMarker", colors.base7, colors.none, bold)
+
 
 
 -- Yaml
