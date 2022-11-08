@@ -186,9 +186,9 @@ hl("@text", colors.base5, colors.none)
 hl("@textReference", colors.base13, colors.none)
 hl("@title", colors.base6, colors.none, bold)
 hl("@type", colors.base14, colors.none)
-hl("@typeBuiltin", colors.base3, colors.none)
+hl("@type.builtin", colors.base3, colors.none)
 hl("@variable", colors.base5, colors.none)
-hl("@variableBuiltin", colors.base4, colors.none)
+hl("@variable.builtin", colors.base4, colors.none)
 hl("@warning", colors.base2, colors.none)
 
 -- Currently Disabled
