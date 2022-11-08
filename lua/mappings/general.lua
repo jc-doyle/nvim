@@ -53,6 +53,10 @@ m('t', '<C-Enter>', 'lua require "utils.terminal".toggle()')
 m('n', '<C-Bslash>', 'lua require "utils.shell".toggle()')
 m('t', '<C-Bslash>', 'lua require "utils.shell".toggle()')
 
+-- Toggle status bar
+m('n', '<C-i>', 'lua toggle_status()')
+m('n', '<C-S-i>', 'lua toggle_command()')
+
 -- map('t', '<leader>D', 'lua require "dap".step_over()')
 m('t', '<C-n>', 'stopinsert')
 
@@ -65,6 +69,8 @@ m('n', '<C-s>', 'w')
 -- Open Link
 m('n', 'gx', 'call jobstart(["xdg-open", expand("<cfile>")])')
 
+-- Scroll Docs
 m('i', '<C-S-j>', 'lua require"cmp".scroll_docs(2)')
 m('i', '<C-S-k>', 'lua require"cmp".scroll_docs(-2)')
+
 
