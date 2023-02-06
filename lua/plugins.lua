@@ -179,6 +179,15 @@ return packer.startup(function()
 		end
 	}
 	use {
+		"nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+		config = function()
+			require("plugin-settings.filetree")
+		end
+	}
+	use {
 		"kevinhwang91/nvim-bqf",
 		config = function()
 			require("plugin-settings.quickfix")
@@ -191,7 +200,12 @@ return packer.startup(function()
 
 	-- Language Specific -----------------------------------------------
 	use "Vimjas/vim-python-pep8-indent"
-	-- use "vim-pandoc/vim-pandoc-syntax"
+	-- use {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	config = function()
+	-- 		require("plugin-settings.rust-tools")
+	-- 	end
+	-- }
 
 	-- use "lervag/vimtex"
 	use "jalvesaq/Nvim-R"

@@ -1,5 +1,5 @@
-local bufferline = require('bufferline.state')
-local tree = require('nvim-tree.view')
+local bufferline = require('bufferline.api')
+local tree = require('nvim-tree.api').tree
 
 local M = {}
 
@@ -9,7 +9,7 @@ function M.toggle()
 		bufferline.set_offset(0)
 	else
 		bufferline.set_offset(30)
-		require 'nvim-tree'.find_file(true)
+    tree.toggle()
 	end
 end
 

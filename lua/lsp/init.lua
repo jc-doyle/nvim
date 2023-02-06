@@ -12,7 +12,9 @@ local servers = {
 	latex = 'texlab',
 	cpp = 'ccls',
 	vue = 'vls',
-	svelte = 'svelte'
+	svelte = 'svelte',
+  rust = 'rust_analyzer',
+  proto = 'bufls',
 }
 
 local on_attach = function(client, bufnr)

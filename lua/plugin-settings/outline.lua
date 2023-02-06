@@ -1,8 +1,10 @@
-vim.g.symbols_outline = {
+local opts = {
 	highlight_hovered_item = false,
 	show_guides = true,
 	auto_preview = false,
+	auto_close = true,
 	position = 'right',
+  width = 30,
 	show_numbers = false,
 	show_relative_numbers = false,
 	show_symbol_details = true,
@@ -45,3 +47,4 @@ vim.g.symbols_outline = {
 	}
 }
 
+require"symbols-outline".setup(opts)

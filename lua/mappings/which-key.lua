@@ -2,7 +2,7 @@ local wk = require 'which-key'
 
 local mappings = {
 	r = {'<cmd>FloatermNew --height=0.9 --width=0.9 lf<cr>', 'lf'},
-	e = {'<cmd>lua require"utils.tree".toggle()<cr>', 'tree'},
+	e = {'<cmd>NvimTreeToggle<cr>', 'tree'},
 	q = {'<cmd>lua require"utils.close".close()<cr>', 'close buffer'},
 	c = {[[<cmd>let @/ = ''<cr>]], 'clear search'},
 	o = {'<cmd>SymbolsOutline<cr>', 'outline'},
