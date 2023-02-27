@@ -37,6 +37,8 @@ local function format_kind(entry, item)
 		item.kind = "﬘ Buffer"
 	elseif source == 'spell' then
 		item.kind = " Spell"
+	elseif source == 'ledger' then
+		item.kind = " Account"
 	elseif source == 'luasnip' then
 		item.abbr = item.abbr
 	elseif source == 'latex_symbols' then
@@ -106,6 +108,7 @@ cmp.setup({
 		{name = "latex_symbols"},
 		{name = "pandoc_references"},
 		{name = "luasnip"},
+		{name = "ledger"},
 	},
 	formatting = {format = format},
 	mapping = mappings,

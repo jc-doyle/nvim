@@ -141,12 +141,14 @@ hl("Type", colors.base6, colors.none)
 hl("Typedef", colors.base13, colors.none)
 
 --Treesitter
+hl("@attribute", colors.base13, colors.none)
+hl("@attribute.builtin", colors.base14, colors.none, italic)
 hl("@boolean", colors.base10, colors.none)
 hl("@character", colors.base12, colors.none)
 hl("@comment", colors.base2, colors.none, italic)
 hl("@conditional", colors.base7, colors.none)
 hl("@constant", colors.base10, colors.none)
-hl("@constBuiltin", colors.base10, colors.none)
+hl("@const.builtin", colors.base10, colors.none)
 hl("@constructor", colors.base14, colors.none)
 hl("@error", colors.none, colors.none, none)
 hl("@exception", colors.base10, colors.none, italic)
@@ -318,6 +320,10 @@ hl("markdownCodeDelimiter", colors.base2, colors.none, italic)
 
 hl("markdownListMarker", colors.base7, colors.none, bold)
 
+-- Ledger
+hl("@number.ledger", colors.base10, colors.none)
+hl("@text.literal.ledger", colors.base3, colors.none, italic)
+hl("@payee", colors.base3, colors.none, italic)
 
 
 -- Yaml

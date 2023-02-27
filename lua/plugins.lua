@@ -61,7 +61,8 @@ return packer.startup(function()
 			"f3fora/cmp-spell",
 			"jc-doyle/cmp-latex-symbols",
 			"jc-doyle/cmp-pandoc-references",
-			"saadparwaiz1/cmp_luasnip"
+			"saadparwaiz1/cmp_luasnip",
+			"piero-vic/cmp-ledger"
 		},
 		config = function()
 			require("plugin-settings.completion")
@@ -200,14 +201,9 @@ return packer.startup(function()
 
 	-- Language Specific -----------------------------------------------
 	use "Vimjas/vim-python-pep8-indent"
-	-- use {
-	-- 	"simrat39/rust-tools.nvim",
-	-- 	config = function()
-	-- 		require("plugin-settings.rust-tools")
-	-- 	end
-	-- }
 
 	-- use "lervag/vimtex"
 	use "jalvesaq/Nvim-R"
 	use "mfussenegger/nvim-jdtls"
+  use "ledger/vim-ledger"
 end)

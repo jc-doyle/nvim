@@ -1,7 +1,7 @@
 local lsp = require 'lspconfig'
 
 local servers = {
-	lua = 'sumneko_lua',
+	lua = 'lua_ls',
 	go = 'gopls',
 	java = 'jdtls',
 	python = 'pyright',
