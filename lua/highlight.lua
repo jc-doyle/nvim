@@ -80,7 +80,7 @@ hl('StLine', colors.base1, colors.base0, strikethrough)
 hl("StatusLineNC", colors.base0, colors.base0)
 hl("StatusLine", colors.none, colors.base0)
 
-hl("MatchParen", colors.base7, colors.none)
+hl("MatchParen", colors.base7, colors.none, bold)
 hl("NonText", colors.base2, colors.none)
 hl("SpecialKey", colors.base2, colors.none)
 hl("SpellBad", colors.none, colors.none, underline)
