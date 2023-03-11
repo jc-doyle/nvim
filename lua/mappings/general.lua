@@ -53,10 +53,6 @@ m('t', '<C-Enter>', 'lua require "utils.terminal".toggle()')
 m('n', '<C-Bslash>', 'lua require "utils.shell".toggle()')
 m('t', '<C-Bslash>', 'lua require "utils.shell".toggle()')
 
--- Toggle status bar
-m('n', '<C-i>', 'lua toggle_status()')
-m('n', '<C-S-i>', 'lua toggle_command()')
-
 -- map('t', '<leader>D', 'lua require "dap".step_over()')
 m('t', '<C-n>', 'stopinsert')
 

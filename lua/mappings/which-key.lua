@@ -19,6 +19,8 @@ local mappings = {
 		s = {'<cmd>setlocal spell!<cr>', 'spell'},
 		h = {'<cmd>set conceallevel=2<cr>', 'conceal'},
 		c = {'<cmd>set conceallevel=0<cr>', 'no-conceal'},
+		i = {'<cmd>lua toggle_status()<cr>', 'toggle status bar'},
+		o = {'<cmd>lua toggle_commmand()<cr>', 'toggle command bar'},
 		w = {'<cmd>set wrap!<cr>', 'wrap'},
 	},
 	S = {
