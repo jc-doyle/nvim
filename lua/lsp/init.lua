@@ -19,7 +19,6 @@ local servers = {
   svelte = 'svelte',
   rust = 'rust_analyzer',
   proto = 'bufls',
-  tailwind = 'tailwindcss',
 }
 
 local on_attach = function(client, bufnr)
