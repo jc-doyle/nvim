@@ -13,12 +13,14 @@ local servers = {
   html = 'html',
   emmet = 'emmet_ls',
   javascript = 'tsserver',
+  typescript = 'tsserver',
   css = 'cssls',
   cpp = 'ccls',
   vue = 'vls',
   svelte = 'svelte',
   rust = 'rust_analyzer',
   proto = 'bufls',
+  deno = 'denols',
 }
 
 local on_attach = function(client, bufnr)
