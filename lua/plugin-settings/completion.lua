@@ -2,31 +2,31 @@ local cmp = require 'cmp'
 local mappings = require 'mappings.completion'
 
 local LspItemKind = {
-	Text = " Text",
-	Method = " Method",
-	Function = " Function",
+	Text = " Text",
+	Method = "󰆧 Method",
+	Function = "󰊕 Function",
 	Constructor = " Constructor",
-	Field = "פּ Field",
+	Field = " Field",
 	Variable = " Variable",
-	Class = " Class",
-	Interface = " Interface",
-	Module = " Module",
-	Property = "襁Property",
+	Class = "󰠱 Class",
+	Interface = " Interface",
+	Module = " Module",
+	Property = "󰜢 Property",
 	Unit = " Unit",
-	Value = " Value",
-	Enum = "練Enum",
-	Keyword = " Keyword",
-	Snippet = " Snippet",
-	Color = " Color",
-	File = " File",
-	Reference = " Reference",
+	Value = "󰎠 Value",
+	Enum = "󰙅 Enum",
+	Keyword = "󰌋 Keyword",
+	Snippet = " Snippet",
+	Color = "󰏘 Color",
+	File = "󰈙 File",
+	Reference = " Reference",
 	Folder = " Folder",
-	EnumMember = " EnumMember",
+	EnumMember = "󰙅 EnumMember",
 	Constant = " Constant",
-	Struct = " Struct",
+	Struct = "󰙅 Struct",
 	Event = " Event",
-	Opertaor = " Operator",
-	TypeParameter = " TypeParameter",
+	Opertaor = "󰆕 Operator",
+	TypeParameter = "󰅲 TypeParameter",
 }
 
 local function format_kind(entry, item)
@@ -34,7 +34,7 @@ local function format_kind(entry, item)
 	item.kind = LspItemKind[item.kind]
 
 	if source == 'buffer' then
-		item.kind = "﬘ Buffer"
+		item.kind = " Buffer"
 	elseif source == 'spell' then
 		item.kind = " Spell"
 	elseif source == 'ledger' then
@@ -107,7 +107,7 @@ cmp.setup({
 		{name = "path"},
 		{name = "latex_symbols"},
 		{name = "pandoc_references"},
-		{name = "luasnip"},
+		-- {name = "luasnip"},
 		{name = "ledger"},
 	},
 	formatting = {format = format},

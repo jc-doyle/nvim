@@ -34,13 +34,13 @@ require 'nvim-treesitter.configs'.setup {
 
 -- nvim-treesitter/queries/python/injections.scm, with docstring
 -- injections removed
-local py_injections = [[
-((call
-  function: (attribute object: (identifier) @_re)
-  arguments: (argument_list (string) @regex))
- (#eq? @_re "re")
- (#match? @regex "^r.*"))
+-- local py_injections = [[
+--((call
+--  function: (attribute object: (identifier) @_re)
+--  arguments: (argument_list (string) @regex))
+-- (#eq? @_re "re")
+-- (#match? @regex "^r.*"))
 
-(comment) @comment
-]]
-vim.treesitter.set_query('python', 'injections', py_injections)
+--(comment) @comment
+--]]
+-- vim.treesitter.set_query('python', 'injections', py_injections)
