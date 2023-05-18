@@ -19,17 +19,25 @@ require('barbar').setup(
     icons = {
       buffer_index = false,
       buffer_number = false,
+      scroll = { left = '⊲ ', right = ' ⊳' },
       button = '×',
       filetype = {
         custom_colors = true,
         enabled = true,
       },
+      current = {
+        buffer_index = false,
+        scroll = { left = '⊲', right = '⊳' },
+      },
       separator = { left = ' ', right = ' ' },
+      inactive = {
+        button = '×',
+        separator = { left = ' ', right = ' ' },
+        scroll = { left = '⊲', right = '⊳' },
+      },
       modified = { button = '·' },
       pinned = { button = '=' },
       alternate = { filetype = { enabled = false } },
-      current = { buffer_index = false },
-      inactive = { button = '×', separator = { left = ' ', right = ' ' } },
       visible = { modified = { buffer_number = false } },
     },
 

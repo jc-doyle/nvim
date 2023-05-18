@@ -16,8 +16,8 @@ m('n', '<TAB>', 'BufferNext')
 m('n', '<s-TAB>', 'BufferPrevious')
 m('n', '<A-TAB>', 'BufferPick')
 m('n', '<TAB>', 'BufferNext')
-m('n', '<A-,>', 'BufferMoveNext')
-m('n', '<A-.>', 'BufferMovePrevious')
+m('n', '<A-.>', 'BufferMoveNext')
+m('n', '<A-,>', 'BufferMovePrevious')
 
 m('n', '<C-q>', 'lua require"utils.close".close()')
 

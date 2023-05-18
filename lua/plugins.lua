@@ -107,9 +107,9 @@ return packer.startup(function()
   }
 
   use {
-    "terrortylor/nvim-comment",
+    "numToStr/Comment.nvim",
     config = function()
-      require("nvim_comment").setup()
+      require("Comment").setup()
     end,
     event = "BufRead",
   }
