@@ -9,6 +9,7 @@ local mappings = {
 	h = {'<cmd>Telescope help_tags<cr>', 'help'},
 	F = {'<cmd>Telescope find_files<cr>', 'find files'},
 	C = {'<cmd>ColorizerToggle<cr>', 'colorizer'},
+	A = {'<cmd>lua require("spectre").toggle()<cr>', 'find & replace'},
 	a = {
 		name = '+actions',
 		s = {'<cmd>so<cr>', 'source'},

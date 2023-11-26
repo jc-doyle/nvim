@@ -260,13 +260,19 @@ hl("GitSignsAddLn", colors.base5, colors.base10)
 
 hl("GitSignsChange", colors.base11, colors.none)
 hl("GitSignsChangeNr", colors.base15, colors.none)
-hl("GitSignsChangeLn", colors.base5, colors.base11)
+hl("GitSignsChangeLn", colors.base15, colors.base11)
 
 hl("GitSignsDelete", colors.base7, colors.none)
 hl("GitSignsDeleteNr", colors.base10, colors.none)
 hl("GitSignsDeleteLn", colors.base5, colors.base7)
 
 hl("GitSignsCurrentLineBlame", colors.base3, colors.none, italic)
+
+
+hl("SpectreHeader", colors.base0, colors.none)
+hl("SpectreFile", colors.base15, colors.none, bold)
+hl("SpectreReplace", colors.base8, colors.base1)
+hl("SpectreSearch", colors.base14, colors.base0, italic)
 
 hl("CmpDocumentationNormal", colors.base4, colors.base0:light(0.05), italic)
 

@@ -21,11 +21,18 @@ local servers = {
   rust = 'rust_analyzer',
   proto = 'bufls',
   deno = 'denols',
+  compose = 'docker_compose_language_service'
 }
 
 local on_attach = function(client, bufnr)
-  client.server_capabilities.semanticTokensProvider = nil
   require 'mappings.lsp'.set(client, bufnr)
+end
+
+-- Disable semantic tokens
+local on_init = function(client)
+  if client.server_capabilities then
+    client.server_capabilities.semanticTokensProvider = false
+  end
 end
 
 for language, name in pairs(servers) do
@@ -33,6 +40,7 @@ for language, name in pairs(servers) do
   local config = require(setup_path)
 
   -- config.capabilities = require('cmp_nvim_lsp').default_capabilities()
+  config.on_init = on_init
   config.on_attach = on_attach
 
   lsp[name].setup(config)

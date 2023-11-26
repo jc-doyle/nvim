@@ -123,6 +123,20 @@ return packer.startup(function()
   }
 
   use {
+    "nvim-pack/nvim-spectre",
+    config = function()
+      require('spectre').setup({
+        highlight = {
+          ui = "Comment",
+          search = "CursorLineNr",
+          replace = "String"
+        },
+      })
+    end,
+    after = "nvim-cmp",
+  }
+
+  use {
     "monkoose/matchparen.nvim",
     config = function()
       require("matchparen").setup({ hl_group = 'MatchParen' })
