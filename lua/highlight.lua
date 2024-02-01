@@ -174,7 +174,7 @@ hl("@parameter", colors.base13, colors.none)
 hl("@property", colors.base6, colors.none)
 hl("@punctuation.delimiter", colors.base3:dark(0.15), colors.none)
 hl("@punctutation.bracket", colors.base4, colors.none)
-hl("@punctutation.special", colors.base5, colors.none)
+hl("@punctutation.special", colors.base8, colors.none)
 hl("@repeat", colors.base7, colors.none)
 hl("@string", colors.base8, colors.none)
 hl("@stringRegex", colors.base11, colors.none)
@@ -184,9 +184,23 @@ hl("@symbol", colors.base12, colors.none)
 hl("@tag", colors.base10, colors.none)
 hl("@tag.attribute", colors.base13, colors.none, italic)
 hl("@tag.delimiter", colors.base3, colors.none)
+
+-- Text related
 hl("@text", colors.base5, colors.none)
+hl("@text.title.1", colors.base13, colors.none)
+hl("@text.title.2", colors.base6, colors.none)
+hl("@text.title.3", colors.base15, colors.none, italic)
+hl("@text.title.4", colors.base3, colors.none, italic)
+
+hl("@text.title.1.marker", colors.base1, colors.none)
+hl("@text.title.2.marker", colors.base1, colors.none)
+hl("@text.title.3.marker", colors.base1, colors.none)
+hl("@text.title.4.marker", colors.base1, colors.none)
+
 hl("@text.reference", colors.base13, colors.none)
 hl("@text.literal", colors.base14, colors.none)
+
+
 hl("@title", colors.base6, colors.none, bold)
 hl("@type", colors.base14, colors.none)
 hl("@type.builtin", colors.base3, colors.none)
@@ -313,18 +327,19 @@ hl("StartifyHeader", colors.base6, colors.none)
 -- Language Specific
 -- Markdown
 
-hl("markdownH1", colors.base11, colors.none, bold)
-hl("markdownH2", colors.base6, colors.none, bold)
-hl("markdownH3", colors.base6, colors.none, italic)
-hl("markdownH4", colors.base14, colors.none, italic)
-
-hl("markdownH1Delimiter", colors.base1, colors.none, italic)
-hl("markdownH2Delimiter", colors.base1, colors.none, italic)
-hl("markdownH3Delimiter", colors.base1, colors.none, italic)
-hl("markdownH4Delimiter", colors.base1, colors.none, italic)
-hl("markdownCodeDelimiter", colors.base2, colors.none, italic)
-
-hl("markdownListMarker", colors.base7, colors.none, bold)
+-- hl("markdownH1", colors.base11, colors.none, bold)
+-- -- hl("markdownH2", colors.base6, colors.none, bold)
+-- hl("markdownH3", colors.base6, colors.none, italic)
+-- hl("markdownH4", colors.base14, colors.none, italic)
+--
+-- hl("markdownH1Delimiter", colors.base1, colors.none, italic)
+-- hl("markdownH2Delimiter", colors.base1, colors.none, italic)
+-- hl("markdownH3Delimiter", colors.base1, colors.none, italic)
+-- hl("markdownH4Delimiter", colors.base1, colors.none, italic)
+-- hl("markdownCodeDelimiter", colors.base2, colors.none, italic)
+--
+hl("markdownListMarker", colors.base8, colors.none, bold)
+-- hl("markdownLinkText", colors.base7, colors.none, bold)
 
 -- Ledger
 hl("@number.ledger", colors.base10, colors.none)
