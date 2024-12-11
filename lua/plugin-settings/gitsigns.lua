@@ -1,23 +1,23 @@
 require('gitsigns').setup {
 	signs = {
 		add = {
-			hl = 'GitSignsAdd',
+			-- hl = 'GitSignsAdd',
 			text = '│',
 		},
 		change = {
-			hl = 'GitSignsChange',
+			-- hl = 'GitSignsChange',
 			text = '│',
 		},
 		delete = {
-			hl = 'GitSignsDelete',
+			-- hl = 'GitSignsDelete',
 			text = '│',
 		},
 		topdelete = {
-			hl = 'GitSignsDelete',
+			-- hl = 'GitSignsDelete',
 			text = '│',
 		},
 		changedelete = {
-			hl = 'GitSignsChange',
+			-- hl = 'GitSignsChange',
 			text = '│',
 		},
 	},

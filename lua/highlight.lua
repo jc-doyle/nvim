@@ -1,6 +1,10 @@
 require 'utils.color'
 local au = require 'utils.general'.autocmd
-local Color, colors, Group, _, styles = require 'colorbuddy'.setup()
+local colorbuddy = require('colorbuddy')
+local Color = colorbuddy.Color
+local colors = colorbuddy.colors
+local Group = colorbuddy.Group
+local styles = colorbuddy.styles
 local hl = Group.new
 
 local none = styles.NONE
@@ -8,6 +12,7 @@ local bold = styles.bold
 local italic = styles.italic
 local underline = styles.underline
 local strikethrough = styles.strikethrough
+
 
 vim.g.colors_name = 'default'
 
@@ -48,19 +53,19 @@ hl('Strikethrough', colors.none, colors.none, strikethrough)
 -- UI
 hl('Normal', colors.base4, colors.base0)
 hl('LineNr', colors.base1, colors.none)
-hl('Cursor', colors.none, colors.base2:dark(0.05))
+hl('Cursor', colors.none, colors.base2:dark())
 hl('iCursor', colors.none, colors.base4)
-hl('CursorLine', colors.none, colors.base0:dark(0.007))
+hl('CursorLine', colors.none, colors.base0:new_child('1', { { "dark", 0.01 } }))
 hl('CursorLineNr', colors.base3, colors.none)
 hl('CursorColumn', colors.none, colors.none)
 hl('Conceal', colors.base11, colors.none, italic)
 hl('Error', colors.base11, colors.none)
-hl('Pmenu', colors.base3, colors.base1:light(0.03))
-hl('PmenuSel', colors.base5, colors.base1:light(0.06))
-hl('PmenuSbar', colors.none, colors.base1:dark(0.02))
-hl('PmenuThumb', colors.none, colors.base1:light(0.05))
-hl('NormalFloat', colors.none, colors.base1:dark(0.03))
-hl("FloatBorder", colors.base2, colors.base1:dark(0.03), bold)
+hl('Pmenu', colors.base3, colors.base1:new_child('2', { { "light", 0.03 } }))
+hl('PmenuSel', colors.base5, colors.base1:new_child('3', { { "light", 0.06 } }))
+hl('PmenuSbar', colors.none, colors.base1:new_child('4', { { "dark", 0.03 } }))
+hl('PmenuThumb', colors.none, colors.base1:new_child('5', { { "light", 0.05 } }))
+hl('NormalFloat', colors.none, colors.base1:new_child('5', { { "dark", 0.03 } }))
+hl("FloatBorder", colors.base2, colors.base1:new_child('6', { { "dark", 0.03 } }), bold)
 
 -- StatusLine
 hl('StError', colors.base7, colors.base0)
@@ -102,11 +107,12 @@ hl("MsgArea", colors.base2, colors.base0)
 hl("ErrorMsg", colors.base10, colors.none, italic)
 hl("WarningMsg", colors.base13, colors.none)
 hl("MoreMsg", colors.base3, colors.none)
-hl("Yank", colors.none, colors.base1:light(0.05))
+hl("Yank", colors.none, colors.base1:light())
 
 hl("Question", colors.base3, colors.none)
 hl("WildMenu", colors.base15, colors.none)
 hl("Search", colors.none, colors.base1, bold)
+hl("CurSearch", colors.none, colors.base1:light(), bold)
 hl("IncSearch", colors.base0, colors.base11)
 hl("VertSplit", colors.base1, colors.none)
 
@@ -158,6 +164,7 @@ hl("@exception", colors.base7, colors.none)
 hl("@field", colors.base13, colors.none)
 hl("@float", colors.base10, colors.none)
 hl("@function", colors.base11, colors.none)
+hl("@function.method.call", colors.base6, colors.none)
 hl("@funcBuiltin", colors.base11, colors.none)
 hl("@identifier", colors.base6, colors.none)
 hl("@include", colors.base10, colors.none)
@@ -165,6 +172,8 @@ hl("@keyword", colors.base15, colors.none, italic)
 hl("@keyword.function", colors.base15, colors.none, italic)
 hl("@keyword.operator", colors.base15, colors.none)
 hl("@keyword.return", colors.base15, colors.none)
+hl("@keyword.import", colors.base10, colors.none)
+hl("@keyword.conditional", colors.base7, colors.none)
 hl("@label", colors.base15, colors.none)
 hl("@method", colors.base6, colors.none)
 hl("@namespace", colors.base13, colors.none)
@@ -205,6 +214,7 @@ hl("@title", colors.base6, colors.none, bold)
 hl("@type", colors.base14, colors.none)
 hl("@type.builtin", colors.base3, colors.none)
 hl("@variable", colors.base5, colors.none)
+hl("@variable.member", colors.base13, colors.none)
 hl("@variable.builtin", colors.base4, colors.none)
 hl("@warning", colors.base2, colors.none)
 
@@ -299,6 +309,7 @@ hl("DiagnosticInfo", colors.base2, colors.none, italic)
 hl("DiagnosticHint", colors.base2, colors.none, italic)
 
 hl("TroubleFile", colors.base6, colors.none, italic)
+hl("TroubleNormal", colors.base5, colors.none)
 hl("TroubleCount", colors.base11, colors.base0:light(0.02))
 
 
@@ -363,7 +374,7 @@ hl("java1", colors.base11, colors.none, italic)
 
 -- Highlight Yank
 au(
-'TextYankPost',
-    '* silent!',
-    'lua vim.highlight.on_yank{ higroup="Yank", timeout=250 }'
+  'TextYankPost',
+  '* silent!',
+  'lua vim.highlight.on_yank{ higroup="Yank", timeout=250 }'
 )

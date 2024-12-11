@@ -20,7 +20,7 @@ local servers = {
   svelte = 'svelte',
   rust = 'rust_analyzer',
   proto = 'bufls',
-  deno = 'denols',
+  -- deno = 'denols',
   compose = 'docker_compose_language_service'
 }
 
@@ -39,7 +39,6 @@ for language, name in pairs(servers) do
   local setup_path = 'lsp.servers.' .. language
   local config = require(setup_path)
 
-  -- config.capabilities = require('cmp_nvim_lsp').default_capabilities()
   config.on_init = on_init
   config.on_attach = on_attach
 

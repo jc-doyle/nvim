@@ -25,6 +25,7 @@ d.config({
 })
 
 require 'trouble'.setup({
+  cmd = "Trouble",
 	action_keys = {
 		close = {"q", "<esc>"},
 	},

@@ -32,6 +32,7 @@ local LspItemKind = {
 local function format_kind(entry, item)
 	local source = entry.source.name
 	item.kind = LspItemKind[item.kind]
+  item.menu = ""
 
 	if source == 'buffer' then
 		item.kind = " Buffer"
@@ -108,9 +109,12 @@ cmp.setup({
 		{name = "latex_symbols"},
 		{name = "pandoc_references"},
 		-- {name = "luasnip"},
-		{name = "ledger"},
+		-- {name = "ledger"},
 	},
-	formatting = {format = format},
+	formatting = {
+    fields = {'kind', 'abbr'},
+    format = format
+  },
 	mapping = mappings,
 	autocomplete = false,
 	view = {entries = 'native'}
