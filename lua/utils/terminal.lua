@@ -45,11 +45,4 @@ function M.toggle()
 	end
 end
 
-utils.augroup(
-	{
-		{'BufWinEnter,WinEnter,TermOpen', 'term://*', 'startinsert'},
-	},
-	'terminal'
-)
-
 return M
