@@ -5,19 +5,18 @@ M.mode_alias = {
   ['no']   = 'n',
   ['nov']  = 'n',
   ['noV']  = 'n',
-  ['no'] = 'n',
   ['niI']  = 'n',
   ['niR']  = 'n',
   ['niV']  = 'n',
-  ['nt']   = 'n',  -- Terminal normal mode
+  ['nt']   = 'n', -- Terminal normal mode
   ['v']    = 'v',
   ['vs']   = 'v',
   ['V']    = 'v',
   ['Vs']   = 'v',
-  ['']   = 'v',
+  ['']     = 'v',
   ['s']    = 's',
   ['S']    = 's',
-  ['']   = 's',
+  ['']     = 's',
   ['i']    = 'i',
   ['ic']   = 'i',
   ['ix']   = 'i',
@@ -31,8 +30,8 @@ M.mode_alias = {
   ['c']    = 'c',
   ['cv']   = 'c',
   ['ce']   = 'c',
-  ['t']    = 't',  -- Terminal mode
-  ['!']    = 't',  -- Shell/external command
+  ['t']    = 't', -- Terminal mode
+  ['!']    = 't', -- Shell/external command
   ['null'] = 'n',
 }
 
@@ -49,7 +48,7 @@ function M.mode_hl()
   elseif mode == 'c' then
     return 'StCommand'
   elseif mode == 't' then
-    return 'StCommand'  -- Use command highlight for terminal
+    return 'StCommand' -- Use command highlight for terminal
   else
     return 'StNormal'
   end

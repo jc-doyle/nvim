@@ -72,8 +72,8 @@ local function truncate(item)
 end
 
 local function format(entry, item)
-  item = truncate(item)
-  item = format_kind(entry, item)
+  item = format_kind(entry, truncate(item))
+  item.menu = ""
   return item
 end
 
@@ -110,7 +110,10 @@ cmp.setup({
     -- {name = "luasnip"},
     { name = "ledger" },
   },
-  formatting = { format = format },
+  formatting = {
+    fields = { "kind", "abbr" },
+    format = format
+  },
   mapping = mappings,
   autocomplete = false,
   view = { entries = 'native' }

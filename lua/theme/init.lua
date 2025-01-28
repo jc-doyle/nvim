@@ -325,6 +325,7 @@ hl("DiagnosticHint", colors.base2, nil, 'italic')
 
 hl("TroubleFile", colors.base6, nil, 'italic')
 hl("TroubleNormal", colors.base5, nil)
+hl("TroubleNormalNC", colors.base5, nil)
 hl("TroubleCount", colors.base11, light(colors.base0, 0.02))
 
 hl("FocusedSymbol", colors.base6, nil, 'bold')

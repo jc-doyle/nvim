@@ -8,7 +8,7 @@ local M = {}
 -- Buffers that should have a blank statusline
 local none = {
   buftypes = { 'terminal', 'quickfix' },
-  filetypes = { 'Outline', 'NvimTree', 'Trouble' },
+  filetypes = { 'Outline', 'NvimTree', 'trouble' },
   bufnames = { "Object_Browser" }
 }
 
@@ -111,7 +111,9 @@ local statusline_group = api.nvim_create_augroup('statusline', { clear = true })
 api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'ModeChanged' }, {
   group = statusline_group,
   callback = function()
-    vim.wo.statusline = '%!v:lua.require\'statusline\'.print()'
+    if vim.fn.pumvisible() == 0 then
+      vim.wo.statusline = '%!v:lua.require\'statusline\'.print()'
+    end
   end,
 })
 

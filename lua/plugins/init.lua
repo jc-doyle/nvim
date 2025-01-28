@@ -119,7 +119,7 @@ local plugins = {
         "onsails/lspkind.nvim",
       },
     },
-    opts = function()
+    init = function()
       require("plugins.configs.completion")
     end,
   },

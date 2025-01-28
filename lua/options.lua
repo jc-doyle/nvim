@@ -125,7 +125,7 @@ local disabled_built_ins = {
   "2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin",
   "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
   "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
-  "synmenu", "optwin", "compiler", "bugreport", "ftplugin"
+  "synmenu", "optwin", "compiler", "bugreport", "ftplugin", "matchparen"
 }
 
 for _, plugin in pairs(disabled_built_ins) do
