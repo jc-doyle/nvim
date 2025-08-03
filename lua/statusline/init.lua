@@ -27,7 +27,7 @@ local function generate(context)
   active.left = {
     component(utils.mode_hl(), s.mode()),
     component('Normal'),
-    component('StHint', s.folder())
+    component('StText', s.folder())
   }
 
   active.center = {
@@ -38,8 +38,8 @@ local function generate(context)
   }
 
   active.right = {
-    component('StHint', s.git_branch()),
-    component('StHint', s.lsp_active()),
+    component('StText', s.git_branch()),
+    component('StText', s.lsp_active()),
     component(utils.mode_hl(), s.percent())
   }
 

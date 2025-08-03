@@ -119,8 +119,18 @@ local plugins = {
         "onsails/lspkind.nvim",
       },
     },
+    -- {
+    --   'stevearc/conform.nvim',
+    --   opts = require("plugins.configs.format"),
+    -- },
     init = function()
       require("plugins.configs.completion")
+    end,
+  },
+  {
+    "notjedi/nvim-rooter.lua",
+    init = function()
+      require('nvim-rooter').setup { fallback_to_parent = true }
     end,
   },
   -- Colorizer
@@ -144,6 +154,12 @@ local plugins = {
     end,
   },
   -- Misc improvements
+  {
+    'petertriho/nvim-scrollbar',
+    init = function()
+      require("plugins.configs.scrollbar")
+    end,
+  },
 
   { "tpope/vim-surround" },
   {

@@ -104,8 +104,9 @@ end
 
 
 local options = {
+  preselect = cmp.PreselectMode.None,
   completion = {
-    completeopt = "menu,menuone"
+    completeopt = "menu,menuone,noselect"
   },
 
   window = {

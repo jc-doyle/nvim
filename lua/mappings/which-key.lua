@@ -47,6 +47,7 @@ wk.add({
   { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<cr>",                             desc = "code action" },
   { "<leader>ld", "<cmd>lua vim.diagnostic.disable()<cr>",                              desc = "disable" },
   { "<leader>lt", "<cmd>Trouble diagnostics<cr>",                              desc = "file diag." },
+  { "<leader>lr", "<cmd>LspRestart<cr>",                                                desc = "restart" },
   { "<leader>o",  "<cmd>SymbolsOutline<cr>",                                            desc = "outline" },
   { "<leader>p",  group = "pandoc" },
   { "<leader>pD", "<cmd>e ~/.local/share/pandoc/defaults.yaml<cr>",                     desc = "default metadata" },

@@ -3,7 +3,6 @@ local cmd = vim.cmd
 local opt = vim.opt
 -- Global variables
 local g = vim.g
-local s = vim.s
 local indent = 4
 
 g.mapleader = " "

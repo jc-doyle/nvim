@@ -3,13 +3,14 @@ local config = {
   ensure_installed = {
     "go", "python", "dockerfile", "json",
     "yaml", "markdown", "html", "scss",
-    "css", "vim", "lua", "javascript", "svelte",
-    "rust", "vimdoc", "luadoc", "vim",
-    "lua", "markdown", "typescript"
+    "css", "vim", "lua", "javascript",
+    "svelte", "rust", "vimdoc", "luadoc",
+    "vim", "lua", "markdown", "typescript",
+    "c", "cpp"
   },
 
   autopairs = { enable = true },
-  highlight = { enable = true, disable = { "c", "cpp", "r" } },
+  highlight = { enable = true, disable = { "r" } },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -45,7 +46,8 @@ local config = {
   },
   refactor = {
     highlight_definitions = {
-      enable = true
+      enable = true,
+      disable = { "c" }
     },
     highlight_current_scope = {
       enable = false

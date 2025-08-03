@@ -86,10 +86,11 @@ hl("FloatBorder", colors.base2, dark(colors.base1, 0.03), 'bold')
 
 -- StatusLine
 hl('StError', colors.base7, colors.base0)
-hl('StWarn', colors.base14, colors.base0)
-hl('StHint', colors.base2, colors.base0)
-hl('StInfo', colors.base1, colors.base0)
+hl('StWarn', light(colors.base10, 0.4), colors.base0)
+hl('StHint', colors.base14, colors.base0)
+hl('StInfo', colors.base2, colors.base0)
 
+hl('StText', colors.base2, colors.base0)
 hl('StNormal', colors.base0, colors.base6)
 hl('StInsert', colors.base0, colors.base10)
 hl('StVisual', colors.base0, colors.base8)
@@ -131,7 +132,7 @@ hl("WildMenu", colors.base15, nil)
 hl("Search", nil, colors.base1, 'bold')
 hl("CurSearch", nil, light(colors.base1, 0.1), 'bold')
 hl("IncSearch", colors.base0, colors.base11)
-hl("VertSplit", colors.base1, nil)
+hl("WinSeparator", colors.base1, nil)
 
 -- Standard Language Groups
 hl("Boolean", colors.base10, nil)
@@ -271,7 +272,7 @@ hl('BufferInactiveTarget', colors.base14, colors.base1, 'bold')
 hl('BufferVisibleTarget', colors.base14, colors.base2, 'bold')
 hl('BufferTabpageFill', colors.base0, colors.base0, 'bold')
 
-hl("Scrollbar", nil, light(colors.base0, 0.04))
+hl("Scrollbar", nil, colors.base2)
 
 hl("DapLine", nil, light(colors.base0, 0.02))
 hl("DapBreakpoint", colors.base7, light(colors.base0, 0.02))
@@ -318,9 +319,9 @@ hl("CmpDocumentationNormal", colors.base4, light(colors.base0, 0.05), 'italic')
 hl("LspSignature", colors.base6, nil, 'bold')
 
 -- Lsp
-hl("DiagnosticError", colors.base10, nil, 'italic')
-hl("DiagnosticWarn", colors.base14, nil, 'italic')
-hl("DiagnosticInfo", colors.base2, nil, 'italic')
+hl("DiagnosticError", colors.base7, nil, 'italic')
+hl("DiagnosticWarn", light(colors.base10, 0.3), nil, 'italic')
+hl("DiagnosticInfo", colors.base14, nil, 'italic')
 hl("DiagnosticHint", colors.base2, nil, 'italic')
 
 hl("TroubleFile", colors.base6, nil, 'italic')
