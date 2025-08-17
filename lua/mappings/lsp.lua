@@ -1,9 +1,7 @@
 local M = {}
 
-function M.set(client, bufnr)
-  local function m(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+function M.set(client)
+  local m = vim.keymap.set
 
   -- Mappings.
   local opts = { noremap = true, silent = true }
@@ -21,8 +19,6 @@ function M.set(client, bufnr)
 
   if client.server_capabilities.documentFormattingProvider then
     m("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-  else
-    m("n", "<space>f", "<cmd>FormatWrite<cr>", opts)
   end
 end
 

@@ -164,6 +164,13 @@ hl("Todo", colors.base11, nil)
 hl("Type", colors.base6, nil)
 hl("Typedef", colors.base13, nil)
 
+-- Diff
+hl("DiffAdd", colors.base8, nil, 'bold')
+hl("DiffTextAdd", colors.base8, nil)
+hl("DiffText", colors.base8, nil, 'bold')
+hl("DiffChange", colors.base14, nil)
+hl("DiffDelete", dark(colors.base7, 0.5), nil)
+
 -- Treesitter
 hl("@attribute", colors.base13, nil)
 hl("@attribute.builtin", colors.base14, nil, 'italic')

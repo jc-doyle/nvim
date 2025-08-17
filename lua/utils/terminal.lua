@@ -1,7 +1,6 @@
 local M = {}
 local api = vim.api
 
-local utils = require 'utils.general'
 local os_shell = '/bin/zsh'
 
 local terminal = {

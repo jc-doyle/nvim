@@ -1,5 +1,4 @@
 local plugins = {
-  { "nvim-lua/plenary.nvim" },
   {
     "nvim-treesitter/nvim-treesitter",
     init = function()
@@ -25,9 +24,14 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
-    config = function()
-      require("lsp.diagnostics")
-    end
+    cmd = "Trouble",
+    opts = {
+      keys = {
+        q = 'close',
+        ["<cr>"] = 'jump_close',
+        i = 'jump'
+      }
+    }
   },
   {
     "voldikss/vim-floaterm",
@@ -116,13 +120,9 @@ local plugins = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "onsails/lspkind.nvim",
+        "hrsh7th/cmp-emoji",
       },
     },
-    -- {
-    --   'stevearc/conform.nvim',
-    --   opts = require("plugins.configs.format"),
-    -- },
     init = function()
       require("plugins.configs.completion")
     end,
@@ -133,7 +133,6 @@ local plugins = {
       require('nvim-rooter').setup { fallback_to_parent = true }
     end,
   },
-  -- Colorizer
   {
     "norcalli/nvim-colorizer.lua",
     config = function(_)
@@ -145,7 +144,6 @@ local plugins = {
       end, 0)
     end
   },
-  -- Keymappings
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -153,12 +151,28 @@ local plugins = {
       require("plugins.configs.which-key")
     end,
   },
-  -- Misc improvements
   {
     'petertriho/nvim-scrollbar',
     init = function()
       require("plugins.configs.scrollbar")
     end,
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    init = function()
+      require("plugins.configs.spectre")
+    end,
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+    },
+    {
+      "ray-x/lsp_signature.nvim",
+      version = false,
+      event = "InsertEnter",
+      opts = {
+        floating_window = false,
+      },
+    }
   },
 
   { "tpope/vim-surround" },
@@ -176,22 +190,21 @@ require("lazy").setup({
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
   defaults = {
     lazy = false,                                           -- should plugins be lazy-loaded?
-    version = nil
-    -- version = "*", -- enable this to try installing the latest stable versions of plugins
+    version = "*",                                          -- enable this to try installing the latest stable versions of plugins
   },
   ui = {
     icons = {
-      ft = "",
-      lazy = "󰂠",
-      loaded = "",
-      not_loaded = ""
+      ft = "  ",
+      lazy = " 󰂠 ",
+      loaded = "  ",
+      not_loaded = "  "
     }
   },
   install = {
     -- install missing plugins on startup
     missing = true,
     -- try to load one of these colorschemes when starting an installation during startup
-    colorscheme = { "rose-pine", "habamax" }
+    colorscheme = { "default" }
   },
   checker = {
     -- automatically check for plugin updates

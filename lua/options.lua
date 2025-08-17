@@ -5,6 +5,9 @@ local opt = vim.opt
 local g = vim.g
 local indent = 4
 
+-- Remove deprecation messages
+vim.deprecate = function() end
+
 g.mapleader = " "
 
 cmd([[
@@ -54,7 +57,7 @@ opt.listchars = {
 }
 
 -- Hide cmd line
-opt.cmdheight = 0       -- more space in the neovim command line for displaying messages
+opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
 
 -- Popup menu
 opt.pumheight = 10
@@ -106,8 +109,11 @@ opt.undolevels = 1000
 opt.undoreload = 10000
 
 -- fold
-opt.foldmethod = "marker"
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevel = 99
+
+-- chars
 opt.fillchars = {
   fold = ' ',
   eob = ' ',
@@ -130,3 +136,23 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
+
+-- Diagnostics
+local function filterDiagnostics(diagnostic)
+  local m = diagnostic.message
+  if vim.bo.filetype == 'python' then
+    if diagnostic.source == 'pycodestyle' then
+      return m:gsub("^.-%s", "", 1):gsub("^%l", string.upper)
+    end
+  end
+  return m
+end
+
+vim.diagnostic.config({
+  underline = false,
+  signs = false,
+  virtual_text = { prefix = "•", format = filterDiagnostics, spacing = 3 },
+  severity_sort = {
+    reverse = false
+  }
+})

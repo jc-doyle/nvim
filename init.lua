@@ -15,22 +15,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- remove deprecation messages (for now)
-vim.deprecate = function() end
+-- Load config
+require "options"
+require "theme"
+require "autocmds"
+require "filetype"
 
--- Load default configurations and plugins
-for _, source in ipairs({
-  "theme",
-  "options",
-  "plugins",
-  "lsp",
-  "statusline",
-  "mappings",
-  "autocmds",
-  "filetype"
-}) do
-  local ok, fault = pcall(require, source)
-  if not ok then
-    vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault)
-  end
-end
+require "plugins.init"
+require "lsp.init"
+require "statusline.init"
+require "mappings.init"

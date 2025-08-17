@@ -35,6 +35,8 @@ local function format_kind(entry, item)
 
   if source == 'buffer' then
     item.kind = " Buffer"
+  elseif source == 'emoji' then
+    item.kind = ""
   elseif source == 'spell' then
     item.kind = " Spell"
   elseif source == 'ledger' then
@@ -93,23 +95,20 @@ cmp.setup({
     end
   end,
   window = {
-    documentation = {
-      border = { '', '', '', ' ', '', '', '', ' ' },
-      winhighlight = 'NormalFloat:CmpDocumentationNormal,FloatBorder:CmpDocumentationNormal',
-      maxwidth = 40,
-      maxheight = 15
-    }
+
+    -- documentation = cmp.config.window.bordered()
   },
-  sources = {
+  sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
     { name = "buffer" },
     { name = "path" },
     { name = "latex_symbols" },
     { name = "pandoc_references" },
-    -- {name = "luasnip"},
+    { name = "emoji" },
+    { name = "luasnip" },
     { name = "ledger" },
-  },
+  }),
   formatting = {
     fields = { "kind", "abbr" },
     format = format

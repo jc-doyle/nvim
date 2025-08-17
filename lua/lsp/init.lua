@@ -1,6 +1,8 @@
 local SERVERS = {
   "lua_ls",
-  "pyright",
+  "basedpyright",
+  "ruff",
+  "just",
   "vtsls",
   "docker_compose_language_service",
   "dockerls",
@@ -35,7 +37,14 @@ local on_init = function(client)
 end
 
 local on_attach = function(client, bufnr)
-  require 'mappings.lsp'.set(client, bufnr)
+  require 'mappings.lsp'.set(client)
+
+  require "lsp_signature".on_attach({
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
 end
 
 local setup_servers = function(servers)
@@ -63,7 +72,3 @@ require("mason-lspconfig").setup({
   automatic_enable = false,
   ensure_installed = SERVERS
 })
-
--- Load UI and diagnostics configurations
-require('lsp.ui')
-require('lsp.diagnostics')

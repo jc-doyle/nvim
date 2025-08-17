@@ -32,18 +32,12 @@ autocmd("BufEnter", {
   command = "set fo-=c fo-=r fo-=o"
 })
 
-autocmd("Filetype", {
+autocmd("FileType", {
   pattern = { "xml", "html", "xhtml", "css", "scss", "javascript", "typescript", "yaml", "lua" },
   command = "setlocal shiftwidth=2 tabstop=2"
 })
 
--- -- Set colorcolumn
--- autocmd("Filetype", {
---   pattern = { "python", "rst", "c", "cpp" },
---   command = "set colorcolumn=80"
--- })
-
-autocmd("Filetype", {
+autocmd("FileType", {
   pattern = { "gitcommit", "markdown", "text" },
   callback = function()
     vim.opt_local.wrap = true

@@ -6,7 +6,7 @@ local config = {
     "css", "vim", "lua", "javascript",
     "svelte", "rust", "vimdoc", "luadoc",
     "vim", "lua", "markdown", "typescript",
-    "c", "cpp"
+    "c", "cpp", "bash", "caddy", "just",
   },
 
   autopairs = { enable = true },
