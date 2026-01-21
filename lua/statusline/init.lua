@@ -5,10 +5,17 @@ local utils = require 'statusline.utils'
 local api = vim.api
 local M = {}
 
--- Buffers that should have a blank statusline
-local none = {
+-- 1. Buffers that get a blank, highlighted line (StatusLineNC)
+local force_nc = {
   buftypes = { 'terminal', 'quickfix' },
-  filetypes = { 'Outline', 'NvimTree', 'trouble' },
+  filetypes = { 'NvimTree', 'trouble', 'Outline' },
+  bufnames = {}
+}
+
+-- 2. Buffers that get NO statusline at all (render nothing)
+local force_hide = {
+  buftypes = {},
+  filetypes = { 'TelescopePrompt', 'TelescopeResults', 'floaterm' },
   bufnames = { "Object_Browser" }
 }
 
@@ -23,7 +30,6 @@ local function generate(context)
   local active = { left = {}, center = {}, right = {} }
   local inactive = { left = {}, center = {}, right = {} }
 
-  -- Always include mode in active state
   active.left = {
     component(utils.mode_hl(), s.mode()),
     component('Normal'),
@@ -71,10 +77,34 @@ local function generate(context)
   end
 end
 
-local function is_forced_none(context)
-  return vim.tbl_contains(none.buftypes, context.buftype)
-      or vim.tbl_contains(none.filetypes, context.filetype)
-      or vim.tbl_contains(none.bufnames, context.bufname)
+-- Updated to accept win_id to check for floating windows
+local function get_status_mode(bufnr, winnr)
+  local buftype = vim.bo[bufnr].bt
+  local filetype = vim.bo[bufnr].ft
+  local bufname = vim.fn.bufname(bufnr)
+
+  -- 1. Force Hide (Explicit config)
+  if vim.tbl_contains(force_hide.buftypes, buftype)
+      or vim.tbl_contains(force_hide.filetypes, filetype)
+      or vim.tbl_contains(force_hide.bufnames, bufname) then
+    return 'hide'
+  end
+
+  -- 2. Force NC (Explicit config)
+  if vim.tbl_contains(force_nc.buftypes, buftype)
+      or vim.tbl_contains(force_nc.filetypes, filetype)
+      or vim.tbl_contains(force_nc.bufnames, bufname) then
+    return 'nc'
+  end
+
+  -- 3. Catch-all for Floating Windows
+  -- If it's a float and hasn't been handled above, hide it.
+  local config = api.nvim_win_get_config(winnr)
+  if config.relative and config.relative ~= "" then
+    return 'hide'
+  end
+
+  return 'standard'
 end
 
 function M.print()
@@ -94,47 +124,52 @@ function M.print()
     inactive = api.nvim_get_current_win() ~= curwin
   }
 
-  if is_forced_none(context) then
-    return '%#StatusLineNC#'
+  return generate(context)
+end
+
+local function update_statusline(win_id)
+  local win = win_id or api.nvim_get_current_win()
+  local buf = api.nvim_win_get_buf(win)
+
+  -- Pass win ID to check for floating status
+  local mode = get_status_mode(buf, win)
+
+  if mode == 'hide' then
+    vim.wo[win].statusline = nil
+  elseif mode == 'nc' then
+    vim.wo[win].statusline = '%#StatusLineNC#'
   else
-    return generate(context)
+    vim.wo[win].statusline = '%!v:lua.require\'statusline\'.print()'
   end
 end
 
--- Set up initial statusline
-vim.o.statusline = '%!v:lua.require\'statusline\'.print()'
-
--- Create autogroup for statusline events
 local statusline_group = api.nvim_create_augroup('statusline', { clear = true })
 
--- Update statusline on mode changes and window focus
-api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'ModeChanged' }, {
+-- Added 'FileType' to catch late filetype changes (like in floaterm)
+api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'VimEnter', 'FileType' }, {
   group = statusline_group,
   callback = function()
     if vim.fn.pumvisible() == 0 then
-      vim.wo.statusline = '%!v:lua.require\'statusline\'.print()'
+      update_statusline()
     end
   end,
 })
 
--- Handle inactive windows
 api.nvim_create_autocmd('WinLeave', {
   group = statusline_group,
   callback = function()
     local win = api.nvim_get_current_win()
-    vim.wo[win].statusline = '%!v:lua.require\'statusline\'.print()'
+    update_statusline(win)
   end,
 })
 
--- Ensure terminal windows get proper statusline
 api.nvim_create_autocmd('TermOpen', {
   group = statusline_group,
   callback = function()
-    vim.wo.statusline = '%!v:lua.require\'statusline\'.print()'
+    update_statusline()
   end,
 })
 
--- Handle window focus
 api.nvim_create_autocmd('FocusGained', {
   group = statusline_group,
   callback = function()

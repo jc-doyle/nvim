@@ -63,7 +63,7 @@ hl('Strikethrough', nil, nil, 'strikethrough')
 
 -- UI
 hl('Normal', colors.base4, colors.base0)
-hl('NormalFloat', nil, dark(colors.base1, 0.03))
+hl('NormalFloat', nil, colors.base0)
 
 hl('LineNr', colors.base1, nil)
 hl('Cursor', nil, dark(colors.base2, 0.1))
@@ -302,17 +302,17 @@ hl("FloatermBorder", colors.base6, colors.base0)
 hl("IndentBlanklineChar", light(colors.base0, 0.02), nil)
 hl("IndentBlanklineContextChar", colors.base2, nil, 'bold')
 
-hl("GitSignsAdd", colors.base10, nil)
+hl("GitSignsAdd", dark(colors.base13, 0.2), nil)
 hl("GitSignsAddNr", colors.base13, nil)
-hl("GitSignsAddLn", colors.base5, colors.base10)
+hl("GitSignsAddLn", colors.base13, nil)
 
-hl("GitSignsChange", colors.base11, nil)
+hl("GitSignsChange", dark(colors.base15, 0.2), nil)
 hl("GitSignsChangeNr", colors.base15, nil)
-hl("GitSignsChangeLn", colors.base15, colors.base11)
+hl("GitSignsChangeLn", colors.base15, nil)
 
-hl("GitSignsDelete", colors.base7, nil)
+hl("GitSignsDelete", dark(colors.base7, 0.4), nil)
 hl("GitSignsDeleteNr", colors.base10, nil)
-hl("GitSignsDeleteLn", colors.base5, colors.base7)
+hl("GitSignsDeleteLn", colors.base7, nil)
 
 hl("GitSignsCurrentLineBlame", colors.base3, nil, 'italic')
 
@@ -358,6 +358,18 @@ hl("TelescopePromptPrefix", colors.base10, nil)
 
 hl("StartifyHeader", colors.base6, nil)
 
+-- Avante
+hl("AvanteSidebarNormal", colors.base3, colors.base0)
+hl("AvanteSidebarWinSeparator", colors.base0, colors.base0)
+
+hl("AvanteTitle", colors.base3, colors.base0, 'italic')
+hl("AvanteReversedTitle", colors.base0, colors.base0)
+hl("AvanteSubtitle", colors.base3, colors.base0, 'italic')
+hl("AvanteReversedSubtitle", colors.base0, colors.base0)
+hl("AvanteThirdTitle", colors.base3, colors.base0, 'italic')
+hl("AvanteReversedThirdTitle", colors.base0, colors.base0)
+
+
 -- Language Specific
 -- Markdown
 hl("markdownListMarker", colors.base8, nil, 'bold')
@@ -380,3 +392,4 @@ hl("routerror", colors.base10, nil, 'italic')
 
 -- Java Docs
 hl("java1", colors.base11, nil, 'italic')
+

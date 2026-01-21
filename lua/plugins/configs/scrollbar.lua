@@ -20,7 +20,7 @@ require("scrollbar").setup({
       highlight = "Scrollbar",
     },
     Search = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 1,
       gui = nil,
       color = nil,
@@ -29,7 +29,7 @@ require("scrollbar").setup({
       highlight = "Search",
     },
     Error = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 2,
       gui = nil,
       color = nil,
@@ -38,7 +38,7 @@ require("scrollbar").setup({
       highlight = "DiagnosticVirtualTextError",
     },
     Warn = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 3,
       gui = nil,
       blend = 50,
@@ -48,7 +48,7 @@ require("scrollbar").setup({
       highlight = "DiagnosticVirtualTextWarn",
     },
     Info = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 4,
       gui = nil,
       blend = 50,
@@ -58,7 +58,7 @@ require("scrollbar").setup({
       highlight = "DiagnosticVirtualTextInfo",
     },
     Hint = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 5,
       gui = nil,
       blend = 50,
@@ -68,7 +68,7 @@ require("scrollbar").setup({
       highlight = "DiagnosticVirtualTextHint",
     },
     Misc = {
-      text = { "-", "=" },
+      text = { "-", "-" },
       priority = 6,
       gui = nil,
       blend = 50,
@@ -78,7 +78,7 @@ require("scrollbar").setup({
       highlight = "Normal",
     },
     GitAdd = {
-      text = "┆",
+      text = "│",
       priority = 7,
       gui = nil,
       color = nil,
@@ -87,7 +87,7 @@ require("scrollbar").setup({
       highlight = "GitSignsAdd",
     },
     GitChange = {
-      text = "┆",
+      text = "│",
       priority = 7,
       gui = nil,
       color = nil,
@@ -96,7 +96,7 @@ require("scrollbar").setup({
       highlight = "GitSignsChange",
     },
     GitDelete = {
-      text = "▁",
+      text = "│",
       priority = 7,
       gui = nil,
       color = nil,
@@ -140,7 +140,7 @@ require("scrollbar").setup({
   handlers = {
     cursor = false,
     diagnostic = true,
-    gitsigns = false,     -- Requires gitsigns
+    gitsigns = true,     -- Requires gitsigns
     handle = true,
     search = false,       -- Requires hlslens
     ale = false,          -- Requires ALE

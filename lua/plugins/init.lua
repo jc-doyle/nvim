@@ -4,8 +4,8 @@ local plugins = {
     init = function()
       require("plugins.configs.treesitter")
     end,
-    -- event = { "BufReadPost", "BufNewFile", "BufWritePost" },
-    -- cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    lazy = false,
+    build = ':TSUpdate',
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/playground",
@@ -25,13 +25,14 @@ local plugins = {
   {
     "folke/trouble.nvim",
     cmd = "Trouble",
-    opts = {
-      keys = {
-        q = 'close',
-        ["<cr>"] = 'jump_close',
-        i = 'jump'
-      }
-    }
+    branch = "main",
+    version = false,
+    keys = {
+      q = 'close',
+      ["<cr>"] = 'jump_close',
+      i = 'jump'
+    },
+    opts = {}
   },
   {
     "voldikss/vim-floaterm",
@@ -73,6 +74,22 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+  },
+  {
+    "tpope/vim-fugitive",
+  },
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+    }
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -128,12 +145,6 @@ local plugins = {
     end,
   },
   {
-    "notjedi/nvim-rooter.lua",
-    init = function()
-      require('nvim-rooter').setup { fallback_to_parent = true }
-    end,
-  },
-  {
     "norcalli/nvim-colorizer.lua",
     config = function(_)
       require("colorizer").setup()
@@ -165,16 +176,7 @@ local plugins = {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
-    {
-      "ray-x/lsp_signature.nvim",
-      version = false,
-      event = "InsertEnter",
-      opts = {
-        floating_window = false,
-      },
-    }
   },
-
   { "tpope/vim-surround" },
   {
     'kevinhwang91/nvim-bqf',
@@ -225,6 +227,18 @@ require("lazy").setup({
   performance = {
     cache = {
       enabled = true
+    },
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+        -- "matchit",
+        -- "matchparen",
+      },
     }
   },
   state = vim.fn.stdpath("state") .. "/lazy/state.json" -- state info for checker and other things

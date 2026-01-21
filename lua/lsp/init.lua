@@ -39,12 +39,12 @@ end
 local on_attach = function(client, bufnr)
   require 'mappings.lsp'.set(client)
 
-  require "lsp_signature".on_attach({
-    bind = true,
-    handler_opts = {
-      border = "rounded"
-    }
-  }, bufnr)
+  -- require "lsp_signature".on_attach({
+  --   bind = true,
+  --   handler_opts = {
+  --     border = "rounded"
+  --   }
+  -- }, bufnr)
 end
 
 local setup_servers = function(servers)
