@@ -24,6 +24,9 @@ return {
   },
   settings = {
     javascript = {
+      format = {
+        tabSize = 2
+      },
       preferences = {
         -- importModuleSpecifier = "non-relative",
       },
@@ -33,12 +36,17 @@ return {
         variableTypes = { enabled = true },
       },
     },
-    typescript = {
-      preferences = {
-        -- importModuleSpecifier = "non-relative",
-      },
-    },
     vtsls = {
+      javascript = {
+        format = {
+          tabSize = 1
+        }
+      },
+      typescript = {
+        format = {
+          tabSize = 1
+        },
+      },
       autoUseWorkspaceTsdk = true,
       experimental = {
         -- Inlay hint truncation.

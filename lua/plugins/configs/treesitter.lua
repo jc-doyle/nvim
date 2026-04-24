@@ -7,7 +7,7 @@ local config = {
     "svelte", "rust", "vimdoc", "luadoc",
     "vim", "lua", "markdown", "typescript",
     "c", "cpp", "bash", "caddy", "just",
-    "markdown", "markdown_inline"
+    "markdown", "markdown_inline", "tsx"
   },
 
   autopairs = { enable = true },

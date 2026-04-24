@@ -216,6 +216,7 @@ hl("@stringEscape", colors.base9, nil)
 hl("@stringSpecial", colors.base14, nil)
 hl("@symbol", colors.base12, nil)
 hl("@tag", colors.base10, nil)
+hl("@tag.builtin", colors.base10, nil)
 hl("@tag.attribute", colors.base13, nil, 'italic')
 hl("@tag.delimiter", colors.base3, nil)
 

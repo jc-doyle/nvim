@@ -19,7 +19,7 @@ m('n', '<TAB>', 'BufferNext')
 m('n', '<A-.>', 'BufferMoveNext')
 m('n', '<A-,>', 'BufferMovePrevious')
 
-m('n', '<C-q>', 'lua require"utils.close".close()')
+-- m('n', '<C-q>', 'lua require"utils.close".close()')
 
 -- Window Movement
 m('n', '<S-A-j>', 'resize +1')

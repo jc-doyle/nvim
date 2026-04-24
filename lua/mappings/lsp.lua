@@ -16,10 +16,6 @@ function M.set(client)
   m('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   m('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   m('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-
-  if client.server_capabilities.documentFormattingProvider then
-    m("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-  end
 end
 
 return M

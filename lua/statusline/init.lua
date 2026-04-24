@@ -8,7 +8,7 @@ local M = {}
 -- 1. Buffers that get a blank, highlighted line (StatusLineNC)
 local force_nc = {
   buftypes = { 'terminal', 'quickfix' },
-  filetypes = { 'NvimTree', 'trouble', 'Outline' },
+  filetypes = { 'NvimTree', 'trouble', 'Outline', 'aerial' },
   bufnames = {}
 }
 

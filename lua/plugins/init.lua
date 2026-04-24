@@ -46,13 +46,7 @@ local plugins = {
       require("plugins.configs.bufferline")
     end,
   },
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-    event = { "BufRead" },
-  },
+  { 'nvim-mini/mini.comment', version = '*' },
   -- Git integration for buffers
   {
     "lewis6991/gitsigns.nvim",
@@ -82,14 +76,19 @@ local plugins = {
     "NeogitOrg/neogit",
     lazy = true,
     dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional
+      "nvim-lua/plenary.nvim",         -- required
       "nvim-telescope/telescope.nvim", -- optional
     },
     cmd = "Neogit",
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
     }
+  },
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require("plugins.configs.format")
+    end
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -108,6 +107,18 @@ local plugins = {
       require("telescope").load_extension("fzf")
       require("plugins.configs.telescope")
     end
+  },
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+    init = function()
+      require("plugins.configs.outline")
+    end,
   },
   {
     "hrsh7th/nvim-cmp",

@@ -3,10 +3,11 @@ local SERVERS = {
   "basedpyright",
   "ruff",
   "just",
-  "vtsls",
+  "emmet_language_server",
   "docker_compose_language_service",
   "dockerls",
   "jsonls",
+  "tsgo",
   "svelte",
   "bashls",
   "clangd",
@@ -47,18 +48,18 @@ local on_attach = function(client, bufnr)
   -- }, bufnr)
 end
 
+local server_config = {
+  capabilities = vim.deepcopy(capabilities),
+  on_init = on_init,
+  on_attach = on_attach,
+}
+vim.lsp.config('*', server_config)
+
 local setup_servers = function(servers)
   for _, server_name in ipairs(servers) do
-    local server_config = {
-      capabilities = vim.deepcopy(capabilities),
-      on_init = on_init,
-      on_attach = on_attach,
-    }
-
     local custom_config = load_server_config(server_name)
-    server_config = vim.tbl_deep_extend("force", server_config, custom_config)
-
-    require("lspconfig")[server_name].setup(server_config)
+    vim.lsp.enable(server_name)
+    vim.lsp.config(server_name, custom_config)
   end
 end
 
