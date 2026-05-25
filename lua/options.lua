@@ -10,10 +10,6 @@ vim.deprecate = function() end
 
 g.mapleader = " "
 
-cmd([[
-	filetype plugin indent on
-]])
-
 opt.backspace = { "eol", "start", "indent" } -- allow backspacing over everything in insert mode
 opt.clipboard = "unnamedplus"                -- allow neovim to access the system clipboard
 vim.opt.fileencoding = "utf-8"               -- the encoding written to a file

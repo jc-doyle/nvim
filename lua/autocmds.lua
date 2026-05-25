@@ -14,10 +14,10 @@ autocmd("TextYankPost", {
 })
 
 -- Remove whitespace on save
-autocmd("BufWritePre", {
-  pattern = "",
-  command = ":%s/\\s\\+$//e"
-})
+-- autocmd("BufWritePre", {
+--   pattern = "",
+--   command = ":%s/\\s\\+$//e"
+-- })
 
 -- Auto format on save using the attached (optionally filtered) language servere clients
 -- https://neovim.io/doc/user/lsp.html#vim.lsp.buf.format()
@@ -27,10 +27,10 @@ autocmd("BufWritePre", {
 -- })
 
 -- Don"t auto commenting new lines
-autocmd("BufEnter", {
-  pattern = "",
-  command = "set fo-=c fo-=r fo-=o"
-})
+-- autocmd("BufEnter", {
+--   pattern = "",
+--   command = "set fo-=c fo-=r fo-=o"
+-- })
 
 autocmd("FileType", {
   pattern = { "xml", "html", "xhtml", "css", "scss", "javascript", "typescript", "yaml", "lua" },

@@ -70,6 +70,6 @@ setup_servers(SERVERS)
 require("mason").setup()
 require("mason-lspconfig").setup({
   automatic_installation = true,
-  automatic_enable = false,
+  automatic_enable = true,
   ensure_installed = SERVERS
 })

@@ -1,15 +1,14 @@
 local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
-    init = function()
+    config = function()
       require("plugins.configs.treesitter")
     end,
+    branch = "main",
     lazy = false,
     build = ':TSUpdate',
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-refactor"
+      { "nvim-treesitter/nvim-treesitter-textobjects", branch = 'main' },
     }
   },
   {
@@ -192,6 +191,7 @@ local plugins = {
   {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
+    branch = "17680cd",
     init = function()
       require("plugins.configs.quickfix")
     end,
